@@ -1,0 +1,252 @@
+{
+  "MMCComponents": [
+    {
+      "Name": "Spectrum_0",
+      "Type": "Spectrum",
+      "Address": 65536,
+      "Version": "1.0.1.0",
+      "bins": 4096,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Type": null,
+          "Address": 131072,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG",
+          "Type": null,
+          "Address": 131073,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_LIMIT",
+          "Type": null,
+          "Address": 131074,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_REBIN",
+          "Type": null,
+          "Address": 131075,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_MIN",
+          "Type": null,
+          "Address": 131076,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_MAX",
+          "Type": null,
+          "Address": 131077,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "CountsBit": 32,
+      "Path": "/Spectrum_0"
+    },
+    {
+      "Name": "Oscilloscope_1",
+      "Type": "Oscilloscope",
+      "Address": 133120,
+      "Version": "1.0.0.0",
+      "Registers": [
+        {
+          "Name": "READ_STATUS",
+          "Type": "Register",
+          "Address": 135168,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "READ_POSITION",
+          "Type": "Register",
+          "Address": 135169,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_TRIGGER_MODE",
+          "Type": "Register",
+          "Address": 135170,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_PRETRIGGER",
+          "Type": "Register",
+          "Address": 135171,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_TRIGGER_LEVEL",
+          "Type": "Register",
+          "Address": 135172,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_ARM",
+          "Type": "Register",
+          "Address": 135173,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_DECIMATOR",
+          "Type": "Register",
+          "Address": 135174,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "nsamples": 1024,
+      "Channels": 2,
+      "WordSize": 28,
+      "WordEnob": 28,
+      "AnalogInputs": 1,
+      "DigitalInputs": 4,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 1,
+      "DecimatorMax": 0,
+      "DecimatorAveraging": false,
+      "Path": "/Oscilloscope_1"
+    }
+  ],
+  "Registers": [
+    {
+      "Name": "THRESHOLD",
+      "Type": "Register",
+      "Address": 0,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/THRESHOLD"
+    },
+    {
+      "Name": "DELTA",
+      "Type": "Register",
+      "Address": 1,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/DELTA"
+    },
+    {
+      "Name": "INT_SAMPLES",
+      "Type": "Register",
+      "Address": 4104,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/INT_SAMPLES"
+    },
+    {
+      "Name": "PRE_TRIGGER",
+      "Type": "Register",
+      "Address": 4105,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/PRE_TRIGGER"
+    },
+    {
+      "Name": "GAIN",
+      "Type": "Register",
+      "Address": 4106,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/GAIN"
+    },
+    {
+      "Name": "M_LENGTH",
+      "Type": "Register",
+      "Address": 135175,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/M_LENGTH"
+    },
+    {
+      "Name": "BL_HOLD",
+      "Type": "Register",
+      "Address": 135176,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/BL_HOLD"
+    },
+    {
+      "Name": "ANALOG_OFFSET",
+      "Type": "Register",
+      "Address": 4294967289,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "AnalogAFE",
+      "Path": "/ANALOG_OFFSET"
+    }
+  ],
+  "Device": "SCIDK",
+  "Project": "da_nominare",
+  "Magic": "13AD6F2D",
+  "Version": null,
+  "FPGA": "XC7S25CSGA225-1",
+  "BuildDate": "2026-07-21T17:24:05.968324+02:00"
+}
