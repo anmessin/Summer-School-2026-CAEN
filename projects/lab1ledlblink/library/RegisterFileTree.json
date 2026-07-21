@@ -1,0 +1,32 @@
+{
+  "Name": "top",
+  "Path": "",
+  "PageGuid": "6d9ea0f2-8f89-4989-a62e-10ef6f1c77c9",
+  "PageName": "top",
+  "BaseAddress": 0,
+  "RealBaseAddress": 0,
+  "PageSize": 0,
+  "MultiPageCount": 0,
+  "MultiPageIndex": 0,
+  "Elements": [
+    {
+      "Name": "ANALOG_OFFSET",
+      "Type": "Register",
+      "Address": 4294967289,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "AnalogAFE",
+      "Path": "/ANALOG_OFFSET"
+    }
+  ],
+  "Childs": [],
+  "isTop": true,
+  "Mode": "tree",
+  "Device": "SCIDK",
+  "Project": "lab1ledlblink",
+  "Magic": "12724658",
+  "Version": null,
+  "FPGA": "XC7S25CSGA225-1",
+  "BuildDate": "2026-07-21T12:19:09.2589215+02:00"
+}

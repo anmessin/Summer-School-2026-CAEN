@@ -1,0 +1,21 @@
+{
+  "MMCComponents": [],
+  "Registers": [
+    {
+      "Name": "ANALOG_OFFSET",
+      "Type": "Register",
+      "Address": 4294967289,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "AnalogAFE",
+      "Path": "/ANALOG_OFFSET"
+    }
+  ],
+  "Device": "SCIDK",
+  "Project": "lab1ledlblink",
+  "Magic": "12724658",
+  "Version": null,
+  "FPGA": "XC7S25CSGA225-1",
+  "BuildDate": "2026-07-21T12:19:09.2137488+02:00"
+}
