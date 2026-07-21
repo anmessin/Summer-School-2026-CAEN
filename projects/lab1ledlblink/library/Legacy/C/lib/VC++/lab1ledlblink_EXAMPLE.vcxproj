@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>ed733dbb-6765-4bf7-87ae-02e82ad6be39</ProjectGuid>
+    <ProjectGuid>c0ae436c-f674-417c-9e46-9ddb38b927c3</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>lab1ledlblink</RootNamespace>
 	<ProjectName>lab1ledlblink</ProjectName>

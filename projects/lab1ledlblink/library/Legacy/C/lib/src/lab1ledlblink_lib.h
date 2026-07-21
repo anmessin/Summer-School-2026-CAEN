@@ -92,4 +92,8 @@ SCILIB char *ReadFirmwareInformation(NI_HANDLE *handle);
 
 
 
+SCILIB int REG_PULSE_PERIOD_GET(uint32_t *val, NI_HANDLE *handle);
+SCILIB int REG_PULSE_PERIOD_SET(uint32_t val, NI_HANDLE *handle);
+SCILIB int REG_PULSE_WIDTH_GET(uint32_t *val, NI_HANDLE *handle);
+SCILIB int REG_PULSE_WIDTH_SET(uint32_t val, NI_HANDLE *handle);
 SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle);

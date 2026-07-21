@@ -126,7 +126,15 @@ architecture Behavioral of TOP_lab1ledlblink is
         EECS : out STD_LOGIC;
 		
 		-- Register interface          
-				REG_UNIQUE_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+				REG_PULSE_PERIOD_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_PULSE_PERIOD_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_PULSE_PERIOD_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_PULSE_PERIOD_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_PULSE_WIDTH_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_PULSE_WIDTH_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_PULSE_WIDTH_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_PULSE_WIDTH_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_UNIQUE_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
 		REG_UNIQUE_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
 	
 
@@ -272,9 +280,17 @@ architecture Behavioral of TOP_lab1ledlblink is
 		);
 	END COMPONENT;
 
-signal U3_CONST : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
-signal U4_CONST : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
-	signal U5_OUT : STD_LOGIC_VECTOR(0 DOWNTO 0);
+	signal U3_OUT : STD_LOGIC_VECTOR(0 DOWNTO 0);
+signal U4_out_0 : std_logic_vector(31 downto 0);
+signal U5_out_0 : std_logic_vector(31 downto 0);
+	signal REG_PULSE_PERIOD_RD : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal REG_PULSE_PERIOD_WR : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal INT_PULSE_PERIOD_WR : STD_LOGIC_VECTOR(0 downto 0); 
+	signal INT_PULSE_PERIOD_RD : STD_LOGIC_VECTOR(0 downto 0); 
+	signal REG_PULSE_WIDTH_RD : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal REG_PULSE_WIDTH_WR : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal INT_PULSE_WIDTH_WR : STD_LOGIC_VECTOR(0 downto 0); 
+	signal INT_PULSE_WIDTH_RD : STD_LOGIC_VECTOR(0 downto 0); 
 
 	
 begin
@@ -300,7 +316,15 @@ begin
 
 		
 		-- Register interface  
-				REG_UNIQUE_RD => x"12724658",
+				REG_PULSE_PERIOD_RD => REG_PULSE_PERIOD_RD,
+		REG_PULSE_PERIOD_WR => REG_PULSE_PERIOD_WR,
+		INT_PULSE_PERIOD_RD => INT_PULSE_PERIOD_RD,
+		INT_PULSE_PERIOD_WR => INT_PULSE_PERIOD_WR,
+		REG_PULSE_WIDTH_RD => REG_PULSE_WIDTH_RD,
+		REG_PULSE_WIDTH_WR => REG_PULSE_WIDTH_WR,
+		INT_PULSE_WIDTH_RD => INT_PULSE_WIDTH_RD,
+		INT_PULSE_WIDTH_WR => INT_PULSE_WIDTH_WR,
+		REG_UNIQUE_RD => x"12724658",
 		REG_UNIQUE_WR => open,
    
         
@@ -432,22 +456,24 @@ begin
 
 
 	
-	LED_1 <= U5_OUT;
+	LED_1 <= U3_OUT;
 LED_0 <= U2_PULSE;
 
 	U2 : PULSE_GENERATOR
 	PORT MAP(
 		PULSE_OUT => U2_PULSE,
-		PULSE_PERIOD => U3_CONST,
-		PULSE_WIDTH => U4_CONST,
+		PULSE_PERIOD => U4_out_0,
+		PULSE_WIDTH => U5_out_0,
 		CE => "1",
 		CLK => GlobalClock,
 		RESET => GlobalReset
 	);
 
-U3_CONST <= conv_std_logic_vector(65000000,32);
-U4_CONST <= conv_std_logic_vector(10000000,32);
-U5_OUT <= NOT U2_PULSE;
+U3_OUT <= NOT U2_PULSE;
+U4_out_0 <= REG_PULSE_PERIOD_WR(31 downto 0);
+REG_PULSE_PERIOD_RD  <= REG_PULSE_PERIOD_WR;
+U5_out_0 <= REG_PULSE_WIDTH_WR(31 downto 0);
+REG_PULSE_WIDTH_RD  <= REG_PULSE_WIDTH_WR;
 
 		 
 end Behavioral;

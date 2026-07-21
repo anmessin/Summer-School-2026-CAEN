@@ -58,6 +58,22 @@ def __abstracted_fifo_read(count, address, address_status, blocking, timeout_ms,
     err = mydll.NI_ReadData(byref(data), count, address, 1, timeout_ms, byref(handle), byref(read_data), byref(valid_data))
     return err, data, read_data, valid_data 	
 	
+
+def REG_PULSE_PERIOD_GET(handle):
+    [err, data] = __abstracted_reg_read(lab1ledlblink_RegisterFile.SCI_REG_PULSE_PERIOD, handle)
+    return err, data
+
+def REG_PULSE_PERIOD_SET(data, handle):
+    err = __abstracted_reg_write(data, lab1ledlblink_RegisterFile.SCI_REG_PULSE_PERIOD, handle)
+    return err
+
+def REG_PULSE_WIDTH_GET(handle):
+    [err, data] = __abstracted_reg_read(lab1ledlblink_RegisterFile.SCI_REG_PULSE_WIDTH, handle)
+    return err, data
+
+def REG_PULSE_WIDTH_SET(data, handle):
+    err = __abstracted_reg_write(data, lab1ledlblink_RegisterFile.SCI_REG_PULSE_WIDTH, handle)
+    return err
 def REG_ANALOG_OFFSET_SET(data, handle):
     err = __abstracted_reg_write(data, lab1ledlblink_RegisterFile.SCI_REG_ANALOG_OFFSET, handle)
     return err

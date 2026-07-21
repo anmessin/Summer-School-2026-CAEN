@@ -61,6 +61,14 @@ entity ftdi245_cdc is
 			  REG_FIRMWARE_BUILD : IN STD_LOGIC_VECTOR(31 downto 0);
 			  
       -- Register interface          
+		REG_PULSE_PERIOD_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_PULSE_PERIOD_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_PULSE_PERIOD_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_PULSE_PERIOD_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_PULSE_WIDTH_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_PULSE_WIDTH_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_PULSE_WIDTH_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_PULSE_WIDTH_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
 		REG_UNIQUE_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
 		REG_UNIQUE_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
 				  
@@ -426,6 +434,12 @@ BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else
             variable rreg    :  STD_LOGIC_VECTOR(31 downto 0);
         begin
             if reset='1' then
+		REG_PULSE_PERIOD_WR <= (others => '0');
+		INT_PULSE_PERIOD_WR <= "0";
+		INT_PULSE_PERIOD_RD <= "0";
+		REG_PULSE_WIDTH_WR <= (others => '0');
+		INT_PULSE_WIDTH_WR <= "0";
+		INT_PULSE_WIDTH_RD <= "0";
 				
             REG_OFFSET_WR <= (others => '0');
             INT_OFFSET_WR <= "0";
@@ -438,6 +452,10 @@ BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else
             f_BUS_DATASTROBE_REG <= '0';
                 
             elsif rising_edge(clk) then
+		INT_PULSE_PERIOD_WR <= "0";
+		INT_PULSE_PERIOD_RD <= "0";
+		INT_PULSE_WIDTH_WR <= "0";
+		INT_PULSE_WIDTH_RD <= "0";
   			
             INT_OFFSET_WR <= "0";
             INT_OFFSET_RD <= "0";
@@ -473,6 +491,14 @@ BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else
 					   INT_FLASH_ADDRESS_WR <= "1"; 
 				   end if;  					
          
+		if addr = x"00000000" then
+			REG_PULSE_PERIOD_WR <= wreg; 
+			INT_PULSE_PERIOD_WR <= "1"; 
+		end if;
+		if addr = x"00000001" then
+			REG_PULSE_WIDTH_WR <= wreg; 
+			INT_PULSE_WIDTH_WR <= "1"; 
+		end if;
 
 		 
                 end if;
@@ -482,7 +508,13 @@ BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else
    
                     rreg := x"DEADBEEF";
  
- 	
+ 		if addr = x"00000000" then
+			rreg := REG_PULSE_PERIOD_RD; 
+		End If;
+		if addr = x"00000001" then
+			rreg := REG_PULSE_WIDTH_RD; 
+		End If;
+	
  
                     if addr = x"FFFFFFF9" then
                         rreg := REG_OFFSET_RD; 

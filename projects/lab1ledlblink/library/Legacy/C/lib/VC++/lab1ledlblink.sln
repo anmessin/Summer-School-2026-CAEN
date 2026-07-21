@@ -1,9 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("702b2a4b-65e7-4cc5-8c7f-9e171980c3cf") = "lab1ledlblink_Example", "lab1ledlblink_EXAMPLE.vcxproj", "ed733dbb-6765-4bf7-87ae-02e82ad6be39"
+Project("46ed4e52-9c98-4484-9548-26c8c5f48011") = "lab1ledlblink_Example", "lab1ledlblink_EXAMPLE.vcxproj", "c0ae436c-f674-417c-9e46-9ddb38b927c3"
 EndProject
-Project("702b2a4b-65e7-4cc5-8c7f-9e171980c3cf") = "lab1ledlblink_LIB", "lab1ledlblink_LIB.vcxproj", "1222aa3e-4775-4f86-a4d2-8b773106d7b8"
+Project("46ed4e52-9c98-4484-9548-26c8c5f48011") = "lab1ledlblink_LIB", "lab1ledlblink_LIB.vcxproj", "a31415d5-fcde-4a48-b214-79b291d32c9a"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +11,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		ed733dbb-6765-4bf7-87ae-02e82ad6be39.Debug|x86.ActiveCfg = Debug|Win32
-		ed733dbb-6765-4bf7-87ae-02e82ad6be39.Debug|x86.Build.0 = Debug|Win32
-		ed733dbb-6765-4bf7-87ae-02e82ad6be39.Release|x86.ActiveCfg = Release|Win32
-		ed733dbb-6765-4bf7-87ae-02e82ad6be39.Release|x86.Build.0 = Release|Win32
-		1222aa3e-4775-4f86-a4d2-8b773106d7b8.Debug|x86.ActiveCfg = Debug|Win32
-		1222aa3e-4775-4f86-a4d2-8b773106d7b8.Debug|x86.Build.0 = Debug|Win32
-		1222aa3e-4775-4f86-a4d2-8b773106d7b8.Release|x86.ActiveCfg = Release|Win32
-		1222aa3e-4775-4f86-a4d2-8b773106d7b8.Release|x86.Build.0 = Release|Win32
+		c0ae436c-f674-417c-9e46-9ddb38b927c3.Debug|x86.ActiveCfg = Debug|Win32
+		c0ae436c-f674-417c-9e46-9ddb38b927c3.Debug|x86.Build.0 = Debug|Win32
+		c0ae436c-f674-417c-9e46-9ddb38b927c3.Release|x86.ActiveCfg = Release|Win32
+		c0ae436c-f674-417c-9e46-9ddb38b927c3.Release|x86.Build.0 = Release|Win32
+		a31415d5-fcde-4a48-b214-79b291d32c9a.Debug|x86.ActiveCfg = Debug|Win32
+		a31415d5-fcde-4a48-b214-79b291d32c9a.Debug|x86.Build.0 = Debug|Win32
+		a31415d5-fcde-4a48-b214-79b291d32c9a.Release|x86.ActiveCfg = Release|Win32
+		a31415d5-fcde-4a48-b214-79b291d32c9a.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

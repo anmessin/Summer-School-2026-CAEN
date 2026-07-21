@@ -2,6 +2,26 @@
   "MMCComponents": [],
   "Registers": [
     {
+      "Name": "PULSE_PERIOD",
+      "Type": "Register",
+      "Address": 0,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/PULSE_PERIOD"
+    },
+    {
+      "Name": "PULSE_WIDTH",
+      "Type": "Register",
+      "Address": 1,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/PULSE_WIDTH"
+    },
+    {
       "Name": "ANALOG_OFFSET",
       "Type": "Register",
       "Address": 4294967289,
@@ -17,5 +37,5 @@
   "Magic": "12724658",
   "Version": null,
   "FPGA": "XC7S25CSGA225-1",
-  "BuildDate": "2026-07-21T12:19:09.2137488+02:00"
+  "BuildDate": "2026-07-21T12:44:14.0874154+02:00"
 }

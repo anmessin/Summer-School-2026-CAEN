@@ -284,6 +284,22 @@ SCILIB void free_packet_collection (t_generic_event_collection *decoded_packets)
 }
 
 
+SCILIB int REG_PULSE_PERIOD_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_PULSE_PERIOD, handle);
+}
+SCILIB int REG_PULSE_PERIOD_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_PULSE_PERIOD, handle);
+}
+SCILIB int REG_PULSE_WIDTH_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_PULSE_WIDTH, handle);
+}
+SCILIB int REG_PULSE_WIDTH_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_PULSE_WIDTH, handle);
+}
 SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_ANALOG_OFFSET, handle);
