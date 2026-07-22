@@ -324,6 +324,22 @@ SCILIB int REG_RESET_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_RESET, handle);
 }
+SCILIB int REG_WIDTH_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_WIDTH, handle);
+}
+SCILIB int REG_WIDTH_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_WIDTH, handle);
+}
+SCILIB int REG_RUNNING_GET(uint32_t *val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_read(val, SCI_REG_RUNNING, handle);
+}
+SCILIB int REG_RUNNING_SET(uint32_t val, NI_HANDLE *handle)
+{
+     return __abstracted_reg_write(val, SCI_REG_RUNNING, handle);
+}
 SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle)
 {
      return __abstracted_reg_write(val, SCI_REG_ANALOG_OFFSET, handle);

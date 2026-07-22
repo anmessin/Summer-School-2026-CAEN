@@ -1,116 +1,171 @@
 {
-  "Device": "SCIDK",
-  "Registers": [
-    {
-      "Name": "COUNTS",
-      "Address": 2,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "DELTA",
-      "Address": 3,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "THRESHOLD",
-      "Address": 0,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "RESET",
-      "Address": 4,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined"
-    },
-    {
-      "Name": "ANALOG_OFFSET",
-      "Address": 4294967289,
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "AnalogAFE"
-    }
-  ],
-  "Version": null,
-  "GenerationData": "0001-01-01T00:00:00",
   "MMCComponents": [
     {
       "Name": "Oscilloscope_0",
       "Type": "Oscilloscope",
       "Address": 1024,
       "Version": "1.0.0.0",
-      "bins": 0,
-      "CountsBit": 0,
-      "UseDMA": false,
       "Registers": [
         {
           "Name": "READ_STATUS",
+          "Type": "Register",
           "Address": 2048,
+          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined"
+          "Category": "Undefined",
+          "Path": null
         },
         {
           "Name": "READ_POSITION",
+          "Type": "Register",
           "Address": 2049,
+          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined"
+          "Category": "Undefined",
+          "Path": null
         },
         {
           "Name": "CONFIG_TRIGGER_MODE",
+          "Type": "Register",
           "Address": 2050,
+          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined"
+          "Category": "Undefined",
+          "Path": null
         },
         {
           "Name": "CONFIG_PRETRIGGER",
+          "Type": "Register",
           "Address": 2051,
+          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined"
+          "Category": "Undefined",
+          "Path": null
         },
         {
           "Name": "CONFIG_TRIGGER_LEVEL",
+          "Type": "Register",
           "Address": 2052,
+          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined"
+          "Category": "Undefined",
+          "Path": null
         },
         {
           "Name": "CONFIG_ARM",
+          "Type": "Register",
           "Address": 2053,
+          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined"
+          "Category": "Undefined",
+          "Path": null
         },
         {
           "Name": "CONFIG_DECIMATOR",
+          "Type": "Register",
           "Address": 2054,
+          "Version": "",
           "RegionSize": 1,
           "Description": "",
-          "Category": "Undefined"
+          "Category": "Undefined",
+          "Path": null
         }
       ],
-      "Channels": 1,
-      "ChannelsList": null,
       "nsamples": 1024,
+      "Channels": 1,
       "WordSize": 16,
-      "BinsX": 0,
-      "BinsY": 0,
       "WordEnob": 16,
       "AnalogInputs": 1,
       "DigitalInputs": 4,
       "SamplingFrequency": 0,
       "TimeMultiplexing": 1,
-      "DecimatorMax": 0
+      "DecimatorMax": 0,
+      "DecimatorAveraging": false,
+      "Path": "/Oscilloscope_0"
     }
-  ]
+  ],
+  "Registers": [
+    {
+      "Name": "COUNTS",
+      "Type": "Register",
+      "Address": 2,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/COUNTS"
+    },
+    {
+      "Name": "DELTA",
+      "Type": "Register",
+      "Address": 3,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/DELTA"
+    },
+    {
+      "Name": "THRESHOLD",
+      "Type": "Register",
+      "Address": 0,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/THRESHOLD"
+    },
+    {
+      "Name": "RESET",
+      "Type": "Register",
+      "Address": 4,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/RESET"
+    },
+    {
+      "Name": "WIDTH",
+      "Type": "Register",
+      "Address": 2055,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/WIDTH"
+    },
+    {
+      "Name": "RUNNING",
+      "Type": "Register",
+      "Address": 2056,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/RUNNING"
+    },
+    {
+      "Name": "ANALOG_OFFSET",
+      "Type": "Register",
+      "Address": 4294967289,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "AnalogAFE",
+      "Path": "/ANALOG_OFFSET"
+    }
+  ],
+  "Device": "SCIDK",
+  "Project": "lab3counter",
+  "Magic": "3FFCE738",
+  "Version": null,
+  "FPGA": "XC7S25CSGA225-1",
+  "BuildDate": "2026-07-22T10:21:12.8008364+02:00"
 }

@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>c214b4f5-1881-4d4a-81e2-6bd2dd2ab8f2</ProjectGuid>
+    <ProjectGuid>d13a5510-7e6a-4e21-a41f-7fc87092e5aa</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>lab3counter</RootNamespace>
 	<ProjectName>lab3counter</ProjectName>

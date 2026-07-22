@@ -171,6 +171,14 @@ architecture Behavioral of TOP_lab3counter is
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
 		INT_Oscilloscope_0_CONFIG_DECIMATOR_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_WIDTH_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_WIDTH_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_WIDTH_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_WIDTH_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_RUNNING_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_RUNNING_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_RUNNING_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_RUNNING_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
 		REG_UNIQUE_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
 		REG_UNIQUE_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
 	
@@ -346,9 +354,8 @@ signal U4_out_0 : std_logic_vector(15 downto 0);
 		);
 	END COMPONENT;
 
-signal U6_out_0 : std_logic_vector(0 downto 0);
-signal U7_CONST : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
-signal U8_A0 : std_logic_vector(15 downto 0);
+signal U6_CONST : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
+signal U7_A0 : std_logic_vector(15 downto 0);
 	signal BUS_Oscilloscope_0_READ_DATA : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	signal BUS_Oscilloscope_0_VLD : STD_LOGIC_VECTOR(0 DOWNTO 0);
 	signal REG_Oscilloscope_0_READ_STATUS_RD : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -385,6 +392,43 @@ signal U8_A0 : std_logic_vector(15 downto 0);
 		);
 	END COMPONENT;
 
+	signal U9_OUT : STD_LOGIC_VECTOR(0 DOWNTO 0);
+
+	COMPONENT EDGE_DETECTOR_REp
+		GENERIC( 
+			bitSize : INTEGER := 1
+		);
+		PORT( 
+			PORT_IN : in STD_LOGIC_VECTOR(bitSize-1 downto 0);
+			CE : in STD_LOGIC_VECTOR(0 downto 0);
+			CLK : in STD_LOGIC_VECTOR(0 downto 0);
+			RESET : in STD_LOGIC_VECTOR(0 downto 0);
+			PULSE_WIDTH : in INTEGER;
+			PORT_OUT : out STD_LOGIC_VECTOR(bitSize-1 downto 0)
+		);
+	END COMPONENT;
+
+signal U10_out_0 : std_logic_vector(0 downto 0);
+	signal U11_OUT : STD_LOGIC_VECTOR(0 DOWNTO 0);
+
+	COMPONENT pulseshaper
+		GENERIC( 
+			EDGE : STRING := "rising";
+			NO_DELAY : STRING := "false"
+		);
+		PORT( 
+			a : in STD_LOGIC_VECTOR(0 downto 0);
+			CE : in STD_LOGIC;
+			clk : in STD_LOGIC;
+			reset : in STD_LOGIC;
+			width : in INTEGER;
+			delay : in INTEGER;
+			b : out STD_LOGIC_VECTOR(0 downto 0)
+		);
+	END COMPONENT;
+
+signal U12_out_0 : integer;
+signal U13_hold : std_logic_vector(31 downto 0);
 	signal BUS_Oscilloscope_0_READ_ADDRESS : STD_LOGIC_VECTOR(9 downto 0);
 	signal BUS_Oscilloscope_0_WRITE_DATA : STD_LOGIC_VECTOR(31 downto 0);
 	signal BUS_Oscilloscope_0_W_INT : STD_LOGIC_VECTOR(0 downto 0);
@@ -421,6 +465,14 @@ signal U8_A0 : std_logic_vector(15 downto 0);
 	signal REG_RESET_WR : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
 	signal INT_RESET_WR : STD_LOGIC_VECTOR(0 downto 0); 
 	signal INT_RESET_RD : STD_LOGIC_VECTOR(0 downto 0); 
+	signal REG_WIDTH_RD : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal REG_WIDTH_WR : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal INT_WIDTH_WR : STD_LOGIC_VECTOR(0 downto 0); 
+	signal INT_WIDTH_RD : STD_LOGIC_VECTOR(0 downto 0); 
+	signal REG_RUNNING_RD : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal REG_RUNNING_WR : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal INT_RUNNING_WR : STD_LOGIC_VECTOR(0 downto 0); 
+	signal INT_RUNNING_RD : STD_LOGIC_VECTOR(0 downto 0); 
 
 	
 begin
@@ -491,6 +543,14 @@ begin
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_WR => REG_Oscilloscope_0_CONFIG_DECIMATOR_WR,
 		INT_Oscilloscope_0_CONFIG_DECIMATOR_WR => INT_Oscilloscope_0_CONFIG_DECIMATOR_WR,
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_RD => REG_Oscilloscope_0_CONFIG_DECIMATOR_WR,
+		REG_WIDTH_RD => REG_WIDTH_RD,
+		REG_WIDTH_WR => REG_WIDTH_WR,
+		INT_WIDTH_RD => INT_WIDTH_RD,
+		INT_WIDTH_WR => INT_WIDTH_WR,
+		REG_RUNNING_RD => REG_RUNNING_RD,
+		REG_RUNNING_WR => REG_RUNNING_WR,
+		INT_RUNNING_RD => INT_RUNNING_RD,
+		INT_RUNNING_WR => INT_RUNNING_WR,
 		REG_UNIQUE_RD => x"3FFCE738",
 		REG_UNIQUE_WR => open,
    
@@ -631,11 +691,11 @@ begin
 	PORT MAP(
 		CLK => CLK_ACQ,
 		RESET => "1",
-		DATA_IN => U8_A0,
+		DATA_IN => U7_A0,
 		POLARITY => U1_CONST,
 		THRESHOLD => U4_out_0,
 		DELTA => U3_out_0,
-		INIBIT => U7_CONST,
+		INIBIT => U6_CONST,
 		DATA_OUT => U0_DATA_OUT,
 		TRIGGER_OUT => U0_TRIGGER,
 		TOT_OUT => open
@@ -662,18 +722,16 @@ REG_THRESHOLD_RD  <= REG_THRESHOLD_WR;
 		COUNTER => U5_COUNTS,
 		OVERFLOW => open,
 		SIGIN => U0_TRIGGER,
-		ENABLE => "1",
+		ENABLE => U11_OUT,
 		CE => "1",
 		CLK => GlobalClock,
-		RESET => U6_out_0
+		RESET => U9_OUT
 	);
 
-U6_out_0 <= REG_RESET_WR(0 downto 0);
-REG_RESET_RD  <= REG_RESET_WR;
-U7_CONST <= conv_std_logic_vector(10,16);
-U8_A0 <= "0000" & CHA0(13 downto 2);
+U6_CONST <= conv_std_logic_vector(10,16);
+U7_A0 <= "0000" & CHA0(13 downto 2);
 
-	U9 : xlx_oscilloscope_sync
+	U8 : xlx_oscilloscope_sync
 	Generic map(
 		channels => 	1,
 		memLength => 	1024,
@@ -703,6 +761,47 @@ U8_A0 <= "0000" & CHA0(13 downto 2);
 		CONFIG_ARM => REG_Oscilloscope_0_CONFIG_ARM_WR
 	);
 
+
+	U9 : EDGE_DETECTOR_REp
+	Generic map(
+		bitSize => 	1
+	)
+	PORT MAP(
+		PORT_IN => U10_out_0,
+		CE => "1",
+		CLK => GlobalClock,
+		RESET => GlobalReset,
+		PULSE_WIDTH => 1,
+		PORT_OUT => U9_OUT
+	);
+
+U10_out_0 <= REG_RESET_WR(0 downto 0);
+REG_RESET_RD  <= REG_RESET_WR;
+
+	U11 : pulseshaper
+	Generic map(
+		EDGE => 	"rising",
+		NO_DELAY => 	"false"
+	)
+	PORT MAP(
+		a => U9_OUT,
+		CE => '1',
+		clk => GlobalClock(0),
+		reset => GlobalReset(0),
+		width => U12_out_0,
+		delay => 0,
+		b => U11_OUT
+	);
+
+U12_out_0 <= conv_integer(REG_WIDTH_WR);
+REG_WIDTH_RD  <= REG_WIDTH_WR;
+PROCESS_REG_U13 : process(GlobalClock,GlobalReset)
+begin
+    if rising_edge(GlobalClock(0))  then
+         U13_hold <= EXT(U11_OUT,32);
+    end if;
+end process;
+REG_RUNNING_RD <= EXT(U11_OUT,32);
 
 		 
 end Behavioral;

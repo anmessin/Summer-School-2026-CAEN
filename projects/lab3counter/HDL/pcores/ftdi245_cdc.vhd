@@ -106,6 +106,14 @@ entity ftdi245_cdc is
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
 		INT_Oscilloscope_0_CONFIG_DECIMATOR_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_WIDTH_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_WIDTH_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_WIDTH_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_WIDTH_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_RUNNING_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_RUNNING_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_RUNNING_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_RUNNING_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
 		REG_UNIQUE_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
 		REG_UNIQUE_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
 				  
@@ -502,6 +510,12 @@ BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else
 		INT_Oscilloscope_0_CONFIG_ARM_WR <= "0";
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_WR <= (others => '0');
 		INT_Oscilloscope_0_CONFIG_DECIMATOR_WR <= "0";
+		REG_WIDTH_WR <= (others => '0');
+		INT_WIDTH_WR <= "0";
+		INT_WIDTH_RD <= "0";
+		REG_RUNNING_WR <= (others => '0');
+		INT_RUNNING_WR <= "0";
+		INT_RUNNING_RD <= "0";
 				
             REG_OFFSET_WR <= (others => '0');
             INT_OFFSET_WR <= "0";
@@ -532,6 +546,10 @@ BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else
 		INT_Oscilloscope_0_CONFIG_TRIGGER_LEVEL_WR <= "0";
 		INT_Oscilloscope_0_CONFIG_ARM_WR <= "0";
 		INT_Oscilloscope_0_CONFIG_DECIMATOR_WR <= "0";
+		INT_WIDTH_WR <= "0";
+		INT_WIDTH_RD <= "0";
+		INT_RUNNING_WR <= "0";
+		INT_RUNNING_RD <= "0";
   			
             INT_OFFSET_WR <= "0";
             INT_OFFSET_RD <= "0";
@@ -611,6 +629,14 @@ BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else
 			REG_Oscilloscope_0_CONFIG_DECIMATOR_WR <= wreg; 
 			INT_Oscilloscope_0_CONFIG_DECIMATOR_WR <= "1"; 
 		end if;
+		if addr = x"00000807" then
+			REG_WIDTH_WR <= wreg; 
+			INT_WIDTH_WR <= "1"; 
+		end if;
+		if addr = x"00000808" then
+			REG_RUNNING_WR <= wreg; 
+			INT_RUNNING_WR <= "1"; 
+		end if;
 
 		 
                 end if;
@@ -655,6 +681,12 @@ BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else
 		End If;
 		if addr = x"00000806" then
 			rreg := REG_Oscilloscope_0_CONFIG_DECIMATOR_RD; 
+		End If;
+		if addr = x"00000807" then
+			rreg := REG_WIDTH_RD; 
+		End If;
+		if addr = x"00000808" then
+			rreg := REG_RUNNING_RD; 
 		End If;
 	
  

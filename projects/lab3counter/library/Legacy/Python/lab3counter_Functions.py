@@ -100,6 +100,22 @@ def REG_RESET_GET(handle):
 def REG_RESET_SET(data, handle):
     err = __abstracted_reg_write(data, lab3counter_RegisterFile.SCI_REG_RESET, handle)
     return err
+
+def REG_WIDTH_GET(handle):
+    [err, data] = __abstracted_reg_read(lab3counter_RegisterFile.SCI_REG_WIDTH, handle)
+    return err, data
+
+def REG_WIDTH_SET(data, handle):
+    err = __abstracted_reg_write(data, lab3counter_RegisterFile.SCI_REG_WIDTH, handle)
+    return err
+
+def REG_RUNNING_GET(handle):
+    [err, data] = __abstracted_reg_read(lab3counter_RegisterFile.SCI_REG_RUNNING, handle)
+    return err, data
+
+def REG_RUNNING_SET(data, handle):
+    err = __abstracted_reg_write(data, lab3counter_RegisterFile.SCI_REG_RUNNING, handle)
+    return err
 def REG_ANALOG_OFFSET_SET(data, handle):
     err = __abstracted_reg_write(data, lab3counter_RegisterFile.SCI_REG_ANALOG_OFFSET, handle)
     return err

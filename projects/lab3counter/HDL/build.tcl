@@ -17,7 +17,7 @@ puts $outfile1 "       <GUID0>36F7FF8D-4166-4517-81D2-60182B95C7C3</GUID0>"
 puts $outfile1 "       <MODEL>A</MODEL>"
 puts $outfile1 "   </SUPPORTED_PLATFORM>"
 puts $outfile1 "   <FPGA>"
-puts $outfile1 "       <version>2026.7.22.1</version>"
+puts $outfile1 "       <version>2026.7.22.2</version>"
 puts $outfile1 "       <filename>top_lab3counter.bin</filename>"
 puts $outfile1 "   </FPGA>"
 puts $outfile1 "   <HWJSON>"
@@ -40,11 +40,13 @@ add_files -force ./pcores/FTDI_FIFOs.xcix
 add_files -force ./pcores/main_clk_gen.xci
 add_files -force ./top_lab3counter.vhd
 add_files -force ./pcores/COUNTER_RISINGp.vhd
+add_files -force ./pcores/EDGE_DETECTOR_REp.vhd
 add_files -force ./pcores/ftdi245.vhd
 add_files -force ./pcores/ftdi245_cdc.vhd
 add_files -force ./pcores/i2c_master_scidk_config.vhd
 add_files -force ./pcores/ICAPDNA.vhd
 add_files -force ./pcores/md5.vhd
+add_files -force ./pcores/pulseshaper.vhd
 add_files -force ./pcores/scidk_internal_i2c_manager.vhd
 add_files -force ./pcores/security.vhd
 add_files -force ./pcores/spi93lc56_16bit.vhd

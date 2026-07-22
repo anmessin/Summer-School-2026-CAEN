@@ -109,6 +109,10 @@ SCILIB int REG_DELTA_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_DELTA_SET(uint32_t val, NI_HANDLE *handle);
 SCILIB int REG_RESET_GET(uint32_t *val, NI_HANDLE *handle);
 SCILIB int REG_RESET_SET(uint32_t val, NI_HANDLE *handle);
+SCILIB int REG_WIDTH_GET(uint32_t *val, NI_HANDLE *handle);
+SCILIB int REG_WIDTH_SET(uint32_t val, NI_HANDLE *handle);
+SCILIB int REG_RUNNING_GET(uint32_t *val, NI_HANDLE *handle);
+SCILIB int REG_RUNNING_SET(uint32_t val, NI_HANDLE *handle);
 SCILIB int REG_ANALOG_OFFSET_SET(uint32_t val, NI_HANDLE *handle);
 //-----------------------------------------------------------------
 //-

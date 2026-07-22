@@ -132,6 +132,26 @@
       "Path": "/RESET"
     },
     {
+      "Name": "WIDTH",
+      "Type": "Register",
+      "Address": 2055,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/WIDTH"
+    },
+    {
+      "Name": "RUNNING",
+      "Type": "Register",
+      "Address": 2056,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/RUNNING"
+    },
+    {
       "Name": "ANALOG_OFFSET",
       "Type": "Register",
       "Address": 4294967289,
@@ -147,5 +167,5 @@
   "Magic": "3FFCE738",
   "Version": null,
   "FPGA": "XC7S25CSGA225-1",
-  "BuildDate": "2026-07-22T09:25:24.7994693+02:00"
+  "BuildDate": "2026-07-22T10:21:12.8008364+02:00"
 }

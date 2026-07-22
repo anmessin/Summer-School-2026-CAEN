@@ -1,0 +1,182 @@
+{
+  "MMCComponents": [
+    {
+      "Name": "Oscilloscope_0",
+      "Type": "Oscilloscope",
+      "Address": 1024,
+      "Version": "1.0.0.0",
+      "Registers": [
+        {
+          "Name": "READ_STATUS",
+          "Type": "Register",
+          "Address": 2048,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "READ_POSITION",
+          "Type": "Register",
+          "Address": 2049,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_TRIGGER_MODE",
+          "Type": "Register",
+          "Address": 2050,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_PRETRIGGER",
+          "Type": "Register",
+          "Address": 2051,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_TRIGGER_LEVEL",
+          "Type": "Register",
+          "Address": 2052,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_ARM",
+          "Type": "Register",
+          "Address": 2053,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_DECIMATOR",
+          "Type": "Register",
+          "Address": 2054,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "nsamples": 1024,
+      "Channels": 1,
+      "WordSize": 16,
+      "WordEnob": 16,
+      "AnalogInputs": 1,
+      "DigitalInputs": 4,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 1,
+      "DecimatorMax": 0,
+      "DecimatorAveraging": false,
+      "Path": "/Oscilloscope_0"
+    },
+    {
+      "Name": "List_0",
+      "Type": "ListModule",
+      "Address": 2056,
+      "Version": "1.1.0.0",
+      "WordSize": 1,
+      "Channels": 1,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Type": null,
+          "Address": 2057,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG",
+          "Type": null,
+          "Address": 2058,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "Path": "/List_0"
+    }
+  ],
+  "Registers": [
+    {
+      "Name": "THRESHOLD",
+      "Type": "Register",
+      "Address": 0,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/THRESHOLD"
+    },
+    {
+      "Name": "DELTA",
+      "Type": "Register",
+      "Address": 1,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/DELTA"
+    },
+    {
+      "Name": "LOST",
+      "Type": "Register",
+      "Address": 2059,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/LOST"
+    },
+    {
+      "Name": "GOOD",
+      "Type": "Register",
+      "Address": 2060,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/GOOD"
+    },
+    {
+      "Name": "ANALOG_OFFSET",
+      "Type": "Register",
+      "Address": 4294967289,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "AnalogAFE",
+      "Path": "/ANALOG_OFFSET"
+    }
+  ],
+  "Device": "SCIDK",
+  "Project": "lab4list",
+  "Magic": "29CCC8A4",
+  "Version": null,
+  "FPGA": "XC7S25CSGA225-1",
+  "BuildDate": "2026-07-22T11:48:26.0834866+02:00"
+}
