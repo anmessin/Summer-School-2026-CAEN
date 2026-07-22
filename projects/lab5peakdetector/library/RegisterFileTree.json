@@ -1,0 +1,484 @@
+{
+  "Name": "top",
+  "Path": "",
+  "PageGuid": "a5003c00-ffbc-4401-9cee-55d11959ccd7",
+  "PageName": "top",
+  "BaseAddress": 0,
+  "RealBaseAddress": 0,
+  "PageSize": 0,
+  "MultiPageCount": 0,
+  "MultiPageIndex": 0,
+  "Elements": [
+    {
+      "Name": "List_0",
+      "Type": "ListModule",
+      "Address": 1048577,
+      "Version": "1.1.0.0",
+      "WordSize": 2,
+      "Channels": 1,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Type": null,
+          "Address": 1048578,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG",
+          "Type": null,
+          "Address": 1048579,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "Path": "/List_0"
+    },
+    {
+      "Name": "BL_M",
+      "Type": "Register",
+      "Address": 2,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/BL_M"
+    },
+    {
+      "Name": "BL_HOLD",
+      "Type": "Register",
+      "Address": 3,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/BL_HOLD"
+    },
+    {
+      "Name": "PEAK_DELAY",
+      "Type": "Register",
+      "Address": 1,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/PEAK_DELAY"
+    },
+    {
+      "Name": "ANALOG_OFFSET",
+      "Type": "Register",
+      "Address": 4294967289,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "AnalogAFE",
+      "Path": "/ANALOG_OFFSET"
+    }
+  ],
+  "Childs": [
+    {
+      "Name": "page_subdesign_1_0",
+      "Path": "page_subdesign_1_0",
+      "PageGuid": "e9a899e9-7a8e-41d6-9a50-fb010b0269c7",
+      "PageName": "subdesign_1",
+      "BaseAddress": 524288,
+      "RealBaseAddress": 524288,
+      "PageSize": 262144,
+      "MultiPageCount": 2,
+      "MultiPageIndex": 0,
+      "Elements": [
+        {
+          "Name": "Spectrum_0",
+          "Type": "Spectrum",
+          "Address": 65536,
+          "Version": "1.0.1.0",
+          "bins": 4096,
+          "Registers": [
+            {
+              "Name": "STATUS",
+              "Type": null,
+              "Address": 131072,
+              "Version": null,
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG",
+              "Type": null,
+              "Address": 131073,
+              "Version": null,
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_LIMIT",
+              "Type": null,
+              "Address": 131074,
+              "Version": null,
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_REBIN",
+              "Type": null,
+              "Address": 131075,
+              "Version": null,
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_MIN",
+              "Type": null,
+              "Address": 131076,
+              "Version": null,
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_MAX",
+              "Type": null,
+              "Address": 131077,
+              "Version": null,
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            }
+          ],
+          "CountsBit": 32,
+          "Path": "page_subdesign_1_0/Spectrum_0"
+        },
+        {
+          "Name": "Oscilloscope_0",
+          "Type": "Oscilloscope",
+          "Address": 135168,
+          "Version": "1.0.0.0",
+          "Registers": [
+            {
+              "Name": "READ_STATUS",
+              "Type": "Register",
+              "Address": 139264,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "READ_POSITION",
+              "Type": "Register",
+              "Address": 139265,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_TRIGGER_MODE",
+              "Type": "Register",
+              "Address": 139266,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_PRETRIGGER",
+              "Type": "Register",
+              "Address": 139267,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_TRIGGER_LEVEL",
+              "Type": "Register",
+              "Address": 139268,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_ARM",
+              "Type": "Register",
+              "Address": 139269,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_DECIMATOR",
+              "Type": "Register",
+              "Address": 139270,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            }
+          ],
+          "nsamples": 1024,
+          "Channels": 4,
+          "WordSize": 16,
+          "WordEnob": 16,
+          "AnalogInputs": 1,
+          "DigitalInputs": 4,
+          "SamplingFrequency": 0,
+          "TimeMultiplexing": 1,
+          "DecimatorMax": 0,
+          "DecimatorAveraging": false,
+          "Path": "page_subdesign_1_0/Oscilloscope_0"
+        },
+        {
+          "Name": "THRESHOLD",
+          "Type": "Register",
+          "Address": 0,
+          "Version": "1.0.0.0",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": "page_subdesign_1_0/THRESHOLD"
+        },
+        {
+          "Name": "DELTA",
+          "Type": "Register",
+          "Address": 1,
+          "Version": "1.0.0.0",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": "page_subdesign_1_0/DELTA"
+        }
+      ],
+      "Childs": [],
+      "isTop": false
+    },
+    {
+      "Name": "page_subdesign_1_1",
+      "Path": "page_subdesign_1_1",
+      "PageGuid": "e9a899e9-7a8e-41d6-9a50-fb010b0269c7",
+      "PageName": "subdesign_1",
+      "BaseAddress": 786432,
+      "RealBaseAddress": 786432,
+      "PageSize": 262144,
+      "MultiPageCount": 2,
+      "MultiPageIndex": 1,
+      "Elements": [
+        {
+          "Name": "Spectrum_0",
+          "Type": "Spectrum",
+          "Address": 65536,
+          "Version": "1.0.1.0",
+          "bins": 4096,
+          "Registers": [
+            {
+              "Name": "STATUS",
+              "Type": null,
+              "Address": 131072,
+              "Version": null,
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG",
+              "Type": null,
+              "Address": 131073,
+              "Version": null,
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_LIMIT",
+              "Type": null,
+              "Address": 131074,
+              "Version": null,
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_REBIN",
+              "Type": null,
+              "Address": 131075,
+              "Version": null,
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_MIN",
+              "Type": null,
+              "Address": 131076,
+              "Version": null,
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_MAX",
+              "Type": null,
+              "Address": 131077,
+              "Version": null,
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            }
+          ],
+          "CountsBit": 32,
+          "Path": "page_subdesign_1_1/Spectrum_0"
+        },
+        {
+          "Name": "Oscilloscope_0",
+          "Type": "Oscilloscope",
+          "Address": 135168,
+          "Version": "1.0.0.0",
+          "Registers": [
+            {
+              "Name": "READ_STATUS",
+              "Type": "Register",
+              "Address": 139264,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "READ_POSITION",
+              "Type": "Register",
+              "Address": 139265,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_TRIGGER_MODE",
+              "Type": "Register",
+              "Address": 139266,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_PRETRIGGER",
+              "Type": "Register",
+              "Address": 139267,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_TRIGGER_LEVEL",
+              "Type": "Register",
+              "Address": 139268,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_ARM",
+              "Type": "Register",
+              "Address": 139269,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            },
+            {
+              "Name": "CONFIG_DECIMATOR",
+              "Type": "Register",
+              "Address": 139270,
+              "Version": "",
+              "RegionSize": 1,
+              "Description": "",
+              "Category": "Undefined",
+              "Path": null
+            }
+          ],
+          "nsamples": 1024,
+          "Channels": 4,
+          "WordSize": 16,
+          "WordEnob": 16,
+          "AnalogInputs": 1,
+          "DigitalInputs": 4,
+          "SamplingFrequency": 0,
+          "TimeMultiplexing": 1,
+          "DecimatorMax": 0,
+          "DecimatorAveraging": false,
+          "Path": "page_subdesign_1_1/Oscilloscope_0"
+        },
+        {
+          "Name": "THRESHOLD",
+          "Type": "Register",
+          "Address": 0,
+          "Version": "1.0.0.0",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": "page_subdesign_1_1/THRESHOLD"
+        },
+        {
+          "Name": "DELTA",
+          "Type": "Register",
+          "Address": 1,
+          "Version": "1.0.0.0",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": "page_subdesign_1_1/DELTA"
+        }
+      ],
+      "Childs": [],
+      "isTop": false
+    }
+  ],
+  "isTop": true,
+  "Mode": "tree",
+  "Device": "SCIDK",
+  "Project": "lab5peakdetector",
+  "Magic": "2672AE17",
+  "Version": null,
+  "FPGA": "XC7S25CSGA225-1",
+  "BuildDate": "2026-07-22T17:05:21.3707932+02:00"
+}

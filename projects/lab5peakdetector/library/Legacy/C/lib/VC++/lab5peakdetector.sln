@@ -1,0 +1,26 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("dc682a7d-a4a9-40ed-ae1f-d7affe4498e0") = "lab5peakdetector_Example", "lab5peakdetector_EXAMPLE.vcxproj", "18555b6e-839a-4281-a494-f6583bf7f591"
+EndProject
+Project("dc682a7d-a4a9-40ed-ae1f-d7affe4498e0") = "lab5peakdetector_LIB", "lab5peakdetector_LIB.vcxproj", "79af9249-ac1f-4cb0-8604-f394c88c9a6c"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		18555b6e-839a-4281-a494-f6583bf7f591.Debug|x86.ActiveCfg = Debug|Win32
+		18555b6e-839a-4281-a494-f6583bf7f591.Debug|x86.Build.0 = Debug|Win32
+		18555b6e-839a-4281-a494-f6583bf7f591.Release|x86.ActiveCfg = Release|Win32
+		18555b6e-839a-4281-a494-f6583bf7f591.Release|x86.Build.0 = Release|Win32
+		79af9249-ac1f-4cb0-8604-f394c88c9a6c.Debug|x86.ActiveCfg = Debug|Win32
+		79af9249-ac1f-4cb0-8604-f394c88c9a6c.Debug|x86.Build.0 = Debug|Win32
+		79af9249-ac1f-4cb0-8604-f394c88c9a6c.Release|x86.ActiveCfg = Release|Win32
+		79af9249-ac1f-4cb0-8604-f394c88c9a6c.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
