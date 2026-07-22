@@ -1,0 +1,26 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("e68df9b5-2062-4ffd-ab04-6b9486d54d21") = "lab3counter_Example", "lab3counter_EXAMPLE.vcxproj", "c214b4f5-1881-4d4a-81e2-6bd2dd2ab8f2"
+EndProject
+Project("e68df9b5-2062-4ffd-ab04-6b9486d54d21") = "lab3counter_LIB", "lab3counter_LIB.vcxproj", "3e3e11b7-d161-440c-86e8-a671f6115980"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		c214b4f5-1881-4d4a-81e2-6bd2dd2ab8f2.Debug|x86.ActiveCfg = Debug|Win32
+		c214b4f5-1881-4d4a-81e2-6bd2dd2ab8f2.Debug|x86.Build.0 = Debug|Win32
+		c214b4f5-1881-4d4a-81e2-6bd2dd2ab8f2.Release|x86.ActiveCfg = Release|Win32
+		c214b4f5-1881-4d4a-81e2-6bd2dd2ab8f2.Release|x86.Build.0 = Release|Win32
+		3e3e11b7-d161-440c-86e8-a671f6115980.Debug|x86.ActiveCfg = Debug|Win32
+		3e3e11b7-d161-440c-86e8-a671f6115980.Debug|x86.Build.0 = Debug|Win32
+		3e3e11b7-d161-440c-86e8-a671f6115980.Release|x86.ActiveCfg = Release|Win32
+		3e3e11b7-d161-440c-86e8-a671f6115980.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
