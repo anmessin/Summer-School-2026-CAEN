@@ -1,0 +1,292 @@
+{
+  "MMCComponents": [
+    {
+      "Name": "Spectrum_0",
+      "Type": "Spectrum",
+      "Address": 0,
+      "Version": "1.0.1.0",
+      "bins": 4096,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Type": null,
+          "Address": 65536,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG",
+          "Type": null,
+          "Address": 65537,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_LIMIT",
+          "Type": null,
+          "Address": 65538,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_REBIN",
+          "Type": null,
+          "Address": 65539,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_MIN",
+          "Type": null,
+          "Address": 65540,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_MAX",
+          "Type": null,
+          "Address": 65541,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "CountsBit": 32,
+      "Path": "/Spectrum_0"
+    },
+    {
+      "Name": "Oscilloscope_0",
+      "Type": "Oscilloscope",
+      "Address": 81920,
+      "Version": "1.0.0.0",
+      "Registers": [
+        {
+          "Name": "READ_STATUS",
+          "Type": "Register",
+          "Address": 98304,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "READ_POSITION",
+          "Type": "Register",
+          "Address": 98305,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_TRIGGER_MODE",
+          "Type": "Register",
+          "Address": 98306,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_PRETRIGGER",
+          "Type": "Register",
+          "Address": 98307,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_TRIGGER_LEVEL",
+          "Type": "Register",
+          "Address": 98308,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_ARM",
+          "Type": "Register",
+          "Address": 98309,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_DECIMATOR",
+          "Type": "Register",
+          "Address": 98310,
+          "Version": "",
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "nsamples": 2048,
+      "Channels": 6,
+      "WordSize": 28,
+      "WordEnob": 28,
+      "AnalogInputs": 1,
+      "DigitalInputs": 4,
+      "SamplingFrequency": 0,
+      "TimeMultiplexing": 1,
+      "DecimatorMax": 0,
+      "DecimatorAveraging": false,
+      "Path": "/Oscilloscope_0"
+    }
+  ],
+  "Registers": [
+    {
+      "Name": "T_OFFSET",
+      "Type": "Register",
+      "Address": 65542,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_OFFSET"
+    },
+    {
+      "Name": "T_THRS",
+      "Type": "Register",
+      "Address": 65543,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_THRS"
+    },
+    {
+      "Name": "T_TRIG_K",
+      "Type": "Register",
+      "Address": 65544,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_TRIG_K"
+    },
+    {
+      "Name": "T_TRIG_M",
+      "Type": "Register",
+      "Address": 65545,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_TRIG_M"
+    },
+    {
+      "Name": "T_TRAP_K",
+      "Type": "Register",
+      "Address": 65546,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_TRAP_K"
+    },
+    {
+      "Name": "T_DECONV_M",
+      "Type": "Register",
+      "Address": 65547,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_DECONV_M"
+    },
+    {
+      "Name": "T_TRAP_GAIN",
+      "Type": "Register",
+      "Address": 65548,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_TRAP_GAIN"
+    },
+    {
+      "Name": "T_BL_LEN",
+      "Type": "Register",
+      "Address": 65549,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_BL_LEN"
+    },
+    {
+      "Name": "T_BL_INIB",
+      "Type": "Register",
+      "Address": 65550,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_BL_INIB"
+    },
+    {
+      "Name": "T_SAMPLE_POS",
+      "Type": "Register",
+      "Address": 65551,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_SAMPLE_POS"
+    },
+    {
+      "Name": "T_RUN_CFG",
+      "Type": "Register",
+      "Address": 65552,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_RUN_CFG"
+    },
+    {
+      "Name": "ANALOG_OFFSET",
+      "Type": "Register",
+      "Address": 4294967289,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "AnalogAFE",
+      "Path": "/ANALOG_OFFSET"
+    }
+  ],
+  "Device": "SCIDK",
+  "Project": "lab8mca",
+  "Magic": "1E20F708",
+  "Version": null,
+  "FPGA": "XC7S25CSGA225-1",
+  "BuildDate": "2026-07-23T12:39:15.8237461+02:00"
+}
