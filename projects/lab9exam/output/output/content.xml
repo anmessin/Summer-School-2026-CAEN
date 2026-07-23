@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OPENHARDWARE>
+   <SUPPORTED_PLATFORM>
+       <GUID0>36F7FF8D-4166-4517-81D2-60182B95C7C3</GUID0>
+       <MODEL>A</MODEL>
+   </SUPPORTED_PLATFORM>
+   <FPGA>
+       <version>2026.7.23.10</version>
+       <filename>top_lab9exam.bin</filename>
+   </FPGA>
+   <HWJSON>
+       <filename>RegisterFile.json</filename>
+   </HWJSON>
+</OPENHARDWARE>
