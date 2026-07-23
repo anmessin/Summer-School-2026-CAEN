@@ -66,8 +66,6 @@ for i in tqdm(range(100)):
             energy_list[channel].append(adc)
             #print (buf.data[i])
 
-
-
 #plot histograms of time differences and energy for both channels
 fig, axs = plt.subplots(2, 2, figsize=(12, 8))
 
