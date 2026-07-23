@@ -10,77 +10,6 @@
   "MultiPageIndex": 0,
   "Elements": [
     {
-      "Name": "Spectrum_0",
-      "Type": "Spectrum",
-      "Address": 0,
-      "Version": "1.0.1.0",
-      "bins": 4096,
-      "Registers": [
-        {
-          "Name": "STATUS",
-          "Type": null,
-          "Address": 65536,
-          "Version": null,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined",
-          "Path": null
-        },
-        {
-          "Name": "CONFIG",
-          "Type": null,
-          "Address": 65537,
-          "Version": null,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined",
-          "Path": null
-        },
-        {
-          "Name": "CONFIG_LIMIT",
-          "Type": null,
-          "Address": 65538,
-          "Version": null,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined",
-          "Path": null
-        },
-        {
-          "Name": "CONFIG_REBIN",
-          "Type": null,
-          "Address": 65539,
-          "Version": null,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined",
-          "Path": null
-        },
-        {
-          "Name": "CONFIG_MIN",
-          "Type": null,
-          "Address": 65540,
-          "Version": null,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined",
-          "Path": null
-        },
-        {
-          "Name": "CONFIG_MAX",
-          "Type": null,
-          "Address": 65541,
-          "Version": null,
-          "RegionSize": 1,
-          "Description": "",
-          "Category": "Undefined",
-          "Path": null
-        }
-      ],
-      "CountsBit": 32,
-      "Path": "/Spectrum_0"
-    },
-    {
       "Name": "Oscilloscope_0",
       "Type": "Oscilloscope",
       "Address": 81920,
@@ -170,6 +99,77 @@
       "Path": "/Oscilloscope_0"
     },
     {
+      "Name": "Spectrum_1",
+      "Type": "Spectrum",
+      "Address": 131072,
+      "Version": "1.0.1.0",
+      "bins": 4096,
+      "Registers": [
+        {
+          "Name": "STATUS",
+          "Type": null,
+          "Address": 196608,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG",
+          "Type": null,
+          "Address": 196609,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_LIMIT",
+          "Type": null,
+          "Address": 196610,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_REBIN",
+          "Type": null,
+          "Address": 196611,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_MIN",
+          "Type": null,
+          "Address": 196612,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        },
+        {
+          "Name": "CONFIG_MAX",
+          "Type": null,
+          "Address": 196613,
+          "Version": null,
+          "RegionSize": 1,
+          "Description": "",
+          "Category": "Undefined",
+          "Path": null
+        }
+      ],
+      "CountsBit": 32,
+      "Path": "/Spectrum_1"
+    },
+    {
       "Name": "T_OFFSET",
       "Type": "Register",
       "Address": 65542,
@@ -208,16 +208,6 @@
       "Description": "",
       "Category": "Undefined",
       "Path": "/T_TRIG_M"
-    },
-    {
-      "Name": "T_TRAP_K",
-      "Type": "Register",
-      "Address": 65546,
-      "Version": "1.0.0.0",
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined",
-      "Path": "/T_TRAP_K"
     },
     {
       "Name": "T_DECONV_M",
@@ -270,6 +260,16 @@
       "Path": "/T_SAMPLE_POS"
     },
     {
+      "Name": "T_TRAP_K",
+      "Type": "Register",
+      "Address": 65546,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_TRAP_K"
+    },
+    {
       "Name": "T_RUN_CFG",
       "Type": "Register",
       "Address": 65552,
@@ -278,6 +278,46 @@
       "Description": "",
       "Category": "Undefined",
       "Path": "/T_RUN_CFG"
+    },
+    {
+      "Name": "T_TRAP_M",
+      "Type": "Register",
+      "Address": 98311,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/T_TRAP_M"
+    },
+    {
+      "Name": "LENGTH",
+      "Type": "Register",
+      "Address": 98312,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/LENGTH"
+    },
+    {
+      "Name": "DLENGTH",
+      "Type": "Register",
+      "Address": 98313,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/DLENGTH"
+    },
+    {
+      "Name": "MODE",
+      "Type": "Register",
+      "Address": 196614,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/MODE"
     },
     {
       "Name": "ANALOG_OFFSET",
@@ -298,5 +338,5 @@
   "Magic": "1E20F708",
   "Version": null,
   "FPGA": "XC7S25CSGA225-1",
-  "BuildDate": "2026-07-23T12:39:15.8737215+02:00"
+  "BuildDate": "2026-07-23T15:00:17.6681291+02:00"
 }

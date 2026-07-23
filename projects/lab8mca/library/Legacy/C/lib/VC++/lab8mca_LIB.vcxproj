@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>a5670023-47d9-4b15-bdfb-a8fa72e287eb</ProjectGuid>
+    <ProjectGuid>0d652995-b590-42fb-abdc-e1b9c50c9c09</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>lab8mca_LIB</RootNamespace>
     <ProjectName>lab8mca_LIB</ProjectName>

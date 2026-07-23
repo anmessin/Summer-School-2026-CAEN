@@ -1,5 +1,6 @@
 puts "SciCompiler: Starting vivado builder"
 exec vitis_hls -f HLS/mcahp_test_KHCTRIYF/hls_compile.tcl >@stdout
+exec vitis_hls -f HLS/PileupRejector_PFPWEZES/hls_compile.tcl >@stdout
 
 
 
@@ -18,7 +19,7 @@ puts $outfile1 "       <GUID0>36F7FF8D-4166-4517-81D2-60182B95C7C3</GUID0>"
 puts $outfile1 "       <MODEL>A</MODEL>"
 puts $outfile1 "   </SUPPORTED_PLATFORM>"
 puts $outfile1 "   <FPGA>"
-puts $outfile1 "       <version>2026.7.23.1</version>"
+puts $outfile1 "       <version>2026.7.23.9</version>"
 puts $outfile1 "       <filename>top_lab8mca.bin</filename>"
 puts $outfile1 "   </FPGA>"
 puts $outfile1 "   <HWJSON>"
@@ -41,6 +42,7 @@ add_files -force ./pcores/FTDI_FIFOs.xcix
 add_files -force ./pcores/main_clk_gen.xci
 add_files -force ./top_lab8mca.vhd
 add_files -force ./HDL/pcores/mcahp_test_KHCTRIYF.vhd
+add_files -force ./HDL/pcores/PileupRejector_PFPWEZES.vhd
 add_files -force ./pcores/ftdi245.vhd
 add_files -force ./pcores/ftdi245_cdc.vhd
 add_files -force ./pcores/i2c_master_scidk_config.vhd

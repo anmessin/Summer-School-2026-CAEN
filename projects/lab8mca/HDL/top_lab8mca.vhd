@@ -218,6 +218,45 @@ architecture Behavioral of TOP_lab8mca is
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
 		INT_Oscilloscope_0_CONFIG_DECIMATOR_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_T_TRAP_M_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_T_TRAP_M_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_T_TRAP_M_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_T_TRAP_M_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_LENGTH_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_LENGTH_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_LENGTH_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_LENGTH_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_DLENGTH_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_DLENGTH_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_DLENGTH_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_DLENGTH_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+	BUS_Spectrum_1_READ_ADDRESS : OUT STD_LOGIC_VECTOR(15 downto 0); 
+	BUS_Spectrum_1_READ_DATA : IN STD_LOGIC_VECTOR(31 downto 0); 
+	BUS_Spectrum_1_WRITE_DATA : OUT STD_LOGIC_VECTOR(31 downto 0); 
+	BUS_Spectrum_1_W_INT : OUT STD_LOGIC_VECTOR(0 downto 0); 
+	BUS_Spectrum_1_R_INT : OUT STD_LOGIC_VECTOR(0 downto 0); 
+	BUS_Spectrum_1_VLD : IN STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_STATUS_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		INT_Spectrum_1_STATUS_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_CONFIG_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_Spectrum_1_CONFIG_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_CONFIG_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_Spectrum_1_CONFIG_LIMIT_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_Spectrum_1_CONFIG_LIMIT_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_CONFIG_LIMIT_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_Spectrum_1_CONFIG_REBIN_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_Spectrum_1_CONFIG_REBIN_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_CONFIG_REBIN_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_Spectrum_1_CONFIG_MIN_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_Spectrum_1_CONFIG_MIN_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_CONFIG_MIN_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_Spectrum_1_CONFIG_MAX_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_Spectrum_1_CONFIG_MAX_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_CONFIG_MAX_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_MODE_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_MODE_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_MODE_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_MODE_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
 		REG_UNIQUE_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
 		REG_UNIQUE_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
 	
@@ -400,50 +439,15 @@ architecture Behavioral of TOP_lab8mca is
 	END COMPONENT;
 
 signal U1_A0 : std_logic_vector(15 downto 0);
-	signal BUS_Spectrum_0_READ_DATA : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	signal BUS_Spectrum_0_VLD : STD_LOGIC_VECTOR(0 DOWNTO 0);
-	signal REG_Spectrum_0_STATUS_RD : STD_LOGIC_VECTOR(31 DOWNTO 0);
-
-	COMPONENT xlx_spectrum
-		GENERIC( 
-			memLength : INTEGER := 4096;
-			wordWidth : INTEGER := 32;
-			CLK_FREQ : INTEGER := 125000
-		);
-		PORT( 
-			ENERGY : in STD_LOGIC_VECTOR(15 downto 0);
-			ENERGY_STROBE : in STD_LOGIC_VECTOR(0 downto 0);
-			P_running : out STD_LOGIC_VECTOR(0 downto 0);
-			P_acceptedPulse : out STD_LOGIC_VECTOR(0 downto 0);
-			CLK_WRITE : in STD_LOGIC_VECTOR(0 downto 0);
-			CE : in STD_LOGIC_VECTOR(0 downto 0);
-			RESET : in STD_LOGIC_VECTOR(0 downto 0);
-			CLK_READ : in STD_LOGIC_VECTOR(0 downto 0);
-			READ_ADDRESS : in STD_LOGIC_VECTOR(15 downto 0);
-			READ_DATA : out STD_LOGIC_VECTOR(31 downto 0);
-			READ_INT : in STD_LOGIC_VECTOR(0 downto 0);
-			READ_DATAVALID : out STD_LOGIC_VECTOR(0 downto 0);
-			STATUS : out STD_LOGIC_VECTOR(31 downto 0);
-			CONFIG : in STD_LOGIC_VECTOR(31 downto 0);
-			CONFIG_LIMIT : in STD_LOGIC_VECTOR(31 downto 0);
-			CONFIG_REBIN : in STD_LOGIC_VECTOR(31 downto 0);
-			CONFIG_MIN : in STD_LOGIC_VECTOR(31 downto 0);
-			CONFIG_MAX : in STD_LOGIC_VECTOR(31 downto 0)
-		);
-	END COMPONENT;
-
-signal U3_out_0 : std_logic_vector(15 downto 0);
-signal U4_out_0 : std_logic_vector(31 downto 0);
+signal U2_out_0 : std_logic_vector(15 downto 0);
+signal U3_out_0 : std_logic_vector(31 downto 0);
+signal U4_out_0 : std_logic_vector(15 downto 0);
 signal U5_out_0 : std_logic_vector(15 downto 0);
-signal U6_out_0 : std_logic_vector(15 downto 0);
-signal U7_out_0 : std_logic_vector(15 downto 0);
-signal U8_out_0 : std_logic_vector(23 downto 0);
-signal U9_out_0 : std_logic_vector(23 downto 0);
-signal U10_out_0 : std_logic_vector(3 downto 0);
-signal U11_out_0 : std_logic_vector(15 downto 0);
-signal U12_out_0 : std_logic_vector(15 downto 0);
-signal U13_out_0 : std_logic_vector(0 downto 0);
-signal U14_CONST : STD_LOGIC_VECTOR(0 downto 0) := (others => '0');
+signal U6_out_0 : std_logic_vector(23 downto 0);
+signal U7_out_0 : std_logic_vector(23 downto 0);
+signal U8_out_0 : std_logic_vector(3 downto 0);
+signal U9_out_0 : std_logic_vector(15 downto 0);
+signal U10_out_0 : std_logic_vector(15 downto 0);
 	signal BUS_Oscilloscope_0_READ_DATA : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	signal BUS_Oscilloscope_0_VLD : STD_LOGIC_VECTOR(0 DOWNTO 0);
 	signal REG_Oscilloscope_0_READ_STATUS_RD : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -480,13 +484,13 @@ signal U14_CONST : STD_LOGIC_VECTOR(0 downto 0) := (others => '0');
 		);
 	END COMPONENT;
 
-	signal U16_b : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	signal U12_b : STD_LOGIC_VECTOR(27 DOWNTO 0);
 
 	COMPONENT sigunsig
 		GENERIC( 
 			A_SIZE : INTEGER := 32;
-			B_SIZE : INTEGER := 16;
-			OPERATION : STRING := "unsign_to_unsign"
+			B_SIZE : INTEGER := 28;
+			OPERATION : STRING := "sign_to_sign"
 		);
 		PORT( 
 			a : in STD_LOGIC_VECTOR(A_SIZE-1 downto 0);
@@ -494,16 +498,84 @@ signal U14_CONST : STD_LOGIC_VECTOR(0 downto 0) := (others => '0');
 		);
 	END COMPONENT;
 
-	signal U17_b : STD_LOGIC_VECTOR(27 DOWNTO 0);
-	signal U18_b : STD_LOGIC_VECTOR(27 DOWNTO 0);
-	signal U19_b : STD_LOGIC_VECTOR(27 DOWNTO 0);
-	signal U20_b : STD_LOGIC_VECTOR(27 DOWNTO 0);
+	signal U13_b : STD_LOGIC_VECTOR(27 DOWNTO 0);
+	signal U14_b : STD_LOGIC_VECTOR(27 DOWNTO 0);
+	signal U15_b : STD_LOGIC_VECTOR(27 DOWNTO 0);
+signal U16_out_0 : std_logic_vector(15 downto 0);
+signal U17_CONST : STD_LOGIC_VECTOR(0 downto 0) := (others => '0');
+signal U18_out_0 : std_logic_vector(0 downto 0);
+signal U19_out_0 : std_logic_vector(15 downto 0);
+	signal BUS_Spectrum_1_READ_DATA : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	signal BUS_Spectrum_1_VLD : STD_LOGIC_VECTOR(0 DOWNTO 0);
+	signal REG_Spectrum_1_STATUS_RD : STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+	COMPONENT xlx_spectrum
+		GENERIC( 
+			memLength : INTEGER := 4096;
+			wordWidth : INTEGER := 32;
+			CLK_FREQ : INTEGER := 125000
+		);
+		PORT( 
+			ENERGY : in STD_LOGIC_VECTOR(15 downto 0);
+			ENERGY_STROBE : in STD_LOGIC_VECTOR(0 downto 0);
+			P_running : out STD_LOGIC_VECTOR(0 downto 0);
+			P_acceptedPulse : out STD_LOGIC_VECTOR(0 downto 0);
+			CLK_WRITE : in STD_LOGIC_VECTOR(0 downto 0);
+			CE : in STD_LOGIC_VECTOR(0 downto 0);
+			RESET : in STD_LOGIC_VECTOR(0 downto 0);
+			CLK_READ : in STD_LOGIC_VECTOR(0 downto 0);
+			READ_ADDRESS : in STD_LOGIC_VECTOR(15 downto 0);
+			READ_DATA : out STD_LOGIC_VECTOR(31 downto 0);
+			READ_INT : in STD_LOGIC_VECTOR(0 downto 0);
+			READ_DATAVALID : out STD_LOGIC_VECTOR(0 downto 0);
+			STATUS : out STD_LOGIC_VECTOR(31 downto 0);
+			CONFIG : in STD_LOGIC_VECTOR(31 downto 0);
+			CONFIG_LIMIT : in STD_LOGIC_VECTOR(31 downto 0);
+			CONFIG_REBIN : in STD_LOGIC_VECTOR(31 downto 0);
+			CONFIG_MIN : in STD_LOGIC_VECTOR(31 downto 0);
+			CONFIG_MAX : in STD_LOGIC_VECTOR(31 downto 0)
+		);
+	END COMPONENT;
+
 	signal U21_b : STD_LOGIC_VECTOR(27 DOWNTO 0);
 	signal U22_b : STD_LOGIC_VECTOR(27 DOWNTO 0);
+	signal U23_b : STD_LOGIC_VECTOR(15 DOWNTO 0);
+signal U24_out_0 : std_logic_vector(31 downto 0);
+signal U25_out_0 : std_logic_vector(31 downto 0);
+	signal U26_EVENT_OUT : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	signal U26_DV_OUT : STD_LOGIC_VECTOR(0 downto 0) := "0";
+
+	COMPONENT PileupRejector_PFPWEZES
+		PORT( 
+			data_in : in STD_LOGIC_VECTOR(15 downto 0);
+			dv_in : in STD_LOGIC;
+			pileup_inib_double : in STD_LOGIC_VECTOR(31 downto 0);
+			pileup_inib : in STD_LOGIC_VECTOR(31 downto 0);
+			mode : in STD_LOGIC_VECTOR(3 downto 0);
+			prarallizable : in STD_LOGIC;
+			rst_stat : in STD_LOGIC;
+			ap_clk : in STD_LOGIC;
+			ap_rst : in STD_LOGIC;
+			data_out : out STD_LOGIC_VECTOR(15 downto 0);
+			dv_out : out STD_LOGIC;
+			inib : out STD_LOGIC;
+			rej : out STD_LOGIC;
+			drej : out STD_LOGIC;
+			ic : out STD_LOGIC_VECTOR(31 downto 0);
+			oc : out STD_LOGIC_VECTOR(31 downto 0);
+			rejected : out STD_LOGIC_VECTOR(31 downto 0);
+			rejected_double : out STD_LOGIC_VECTOR(31 downto 0)
+		);
+	END COMPONENT;
+
+signal U27_out_0 : std_logic_vector(3 downto 0);
 	signal BUS_Spectrum_0_READ_ADDRESS : STD_LOGIC_VECTOR(15 downto 0);
+	signal BUS_Spectrum_0_READ_DATA : STD_LOGIC_VECTOR(31 downto 0);
 	signal BUS_Spectrum_0_WRITE_DATA : STD_LOGIC_VECTOR(31 downto 0);
 	signal BUS_Spectrum_0_W_INT : STD_LOGIC_VECTOR(0 downto 0);
 	signal BUS_Spectrum_0_R_INT : STD_LOGIC_VECTOR(0 downto 0);
+	signal BUS_Spectrum_0_VLD : STD_LOGIC_VECTOR(0 downto 0) := "1";
+	signal REG_Spectrum_0_STATUS_RD : STD_LOGIC_VECTOR(31 downto 0);
 	signal INT_Spectrum_0_STATUS_RD : STD_LOGIC_VECTOR(0 downto 0);
 	signal REG_Spectrum_0_CONFIG_WR : STD_LOGIC_VECTOR(31 downto 0);
 	signal INT_Spectrum_0_CONFIG_WR : STD_LOGIC_VECTOR(0 downto 0);
@@ -531,6 +603,21 @@ signal U14_CONST : STD_LOGIC_VECTOR(0 downto 0) := (others => '0');
 	signal INT_Oscilloscope_0_CONFIG_ARM_WR : STD_LOGIC_VECTOR(0 downto 0);
 	signal REG_Oscilloscope_0_CONFIG_DECIMATOR_WR : STD_LOGIC_VECTOR(31 downto 0);
 	signal INT_Oscilloscope_0_CONFIG_DECIMATOR_WR : STD_LOGIC_VECTOR(0 downto 0);
+	signal BUS_Spectrum_1_READ_ADDRESS : STD_LOGIC_VECTOR(15 downto 0);
+	signal BUS_Spectrum_1_WRITE_DATA : STD_LOGIC_VECTOR(31 downto 0);
+	signal BUS_Spectrum_1_W_INT : STD_LOGIC_VECTOR(0 downto 0);
+	signal BUS_Spectrum_1_R_INT : STD_LOGIC_VECTOR(0 downto 0);
+	signal INT_Spectrum_1_STATUS_RD : STD_LOGIC_VECTOR(0 downto 0);
+	signal REG_Spectrum_1_CONFIG_WR : STD_LOGIC_VECTOR(31 downto 0);
+	signal INT_Spectrum_1_CONFIG_WR : STD_LOGIC_VECTOR(0 downto 0);
+	signal REG_Spectrum_1_CONFIG_LIMIT_WR : STD_LOGIC_VECTOR(31 downto 0);
+	signal INT_Spectrum_1_CONFIG_LIMIT_WR : STD_LOGIC_VECTOR(0 downto 0);
+	signal REG_Spectrum_1_CONFIG_REBIN_WR : STD_LOGIC_VECTOR(31 downto 0);
+	signal INT_Spectrum_1_CONFIG_REBIN_WR : STD_LOGIC_VECTOR(0 downto 0);
+	signal REG_Spectrum_1_CONFIG_MIN_WR : STD_LOGIC_VECTOR(31 downto 0);
+	signal INT_Spectrum_1_CONFIG_MIN_WR : STD_LOGIC_VECTOR(0 downto 0);
+	signal REG_Spectrum_1_CONFIG_MAX_WR : STD_LOGIC_VECTOR(31 downto 0);
+	signal INT_Spectrum_1_CONFIG_MAX_WR : STD_LOGIC_VECTOR(0 downto 0);
 	signal REG_T_OFFSET_RD : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
 	signal REG_T_OFFSET_WR : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
 	signal INT_T_OFFSET_WR : STD_LOGIC_VECTOR(0 downto 0); 
@@ -575,6 +662,22 @@ signal U14_CONST : STD_LOGIC_VECTOR(0 downto 0) := (others => '0');
 	signal REG_T_RUN_CFG_WR : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
 	signal INT_T_RUN_CFG_WR : STD_LOGIC_VECTOR(0 downto 0); 
 	signal INT_T_RUN_CFG_RD : STD_LOGIC_VECTOR(0 downto 0); 
+	signal REG_T_TRAP_M_RD : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal REG_T_TRAP_M_WR : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal INT_T_TRAP_M_WR : STD_LOGIC_VECTOR(0 downto 0); 
+	signal INT_T_TRAP_M_RD : STD_LOGIC_VECTOR(0 downto 0); 
+	signal REG_LENGTH_RD : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal REG_LENGTH_WR : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal INT_LENGTH_WR : STD_LOGIC_VECTOR(0 downto 0); 
+	signal INT_LENGTH_RD : STD_LOGIC_VECTOR(0 downto 0); 
+	signal REG_DLENGTH_RD : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal REG_DLENGTH_WR : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal INT_DLENGTH_WR : STD_LOGIC_VECTOR(0 downto 0); 
+	signal INT_DLENGTH_RD : STD_LOGIC_VECTOR(0 downto 0); 
+	signal REG_MODE_RD : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal REG_MODE_WR : STD_LOGIC_VECTOR(31 downto 0) := x"00000000"; 
+	signal INT_MODE_WR : STD_LOGIC_VECTOR(0 downto 0); 
+	signal INT_MODE_RD : STD_LOGIC_VECTOR(0 downto 0); 
 
 	
 begin
@@ -692,6 +795,45 @@ begin
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_WR => REG_Oscilloscope_0_CONFIG_DECIMATOR_WR,
 		INT_Oscilloscope_0_CONFIG_DECIMATOR_WR => INT_Oscilloscope_0_CONFIG_DECIMATOR_WR,
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_RD => REG_Oscilloscope_0_CONFIG_DECIMATOR_WR,
+		REG_T_TRAP_M_RD => REG_T_TRAP_M_RD,
+		REG_T_TRAP_M_WR => REG_T_TRAP_M_WR,
+		INT_T_TRAP_M_RD => INT_T_TRAP_M_RD,
+		INT_T_TRAP_M_WR => INT_T_TRAP_M_WR,
+		REG_LENGTH_RD => REG_LENGTH_RD,
+		REG_LENGTH_WR => REG_LENGTH_WR,
+		INT_LENGTH_RD => INT_LENGTH_RD,
+		INT_LENGTH_WR => INT_LENGTH_WR,
+		REG_DLENGTH_RD => REG_DLENGTH_RD,
+		REG_DLENGTH_WR => REG_DLENGTH_WR,
+		INT_DLENGTH_RD => INT_DLENGTH_RD,
+		INT_DLENGTH_WR => INT_DLENGTH_WR,
+	BUS_Spectrum_1_READ_ADDRESS => BUS_Spectrum_1_READ_ADDRESS,
+	BUS_Spectrum_1_READ_DATA => BUS_Spectrum_1_READ_DATA,
+	BUS_Spectrum_1_WRITE_DATA => BUS_Spectrum_1_WRITE_DATA,
+	BUS_Spectrum_1_W_INT => BUS_Spectrum_1_W_INT,
+	BUS_Spectrum_1_R_INT => BUS_Spectrum_1_R_INT,
+	BUS_Spectrum_1_VLD => BUS_Spectrum_1_VLD,
+		REG_Spectrum_1_STATUS_RD => REG_Spectrum_1_STATUS_RD,
+		INT_Spectrum_1_STATUS_RD => INT_Spectrum_1_STATUS_RD,
+		REG_Spectrum_1_CONFIG_WR => REG_Spectrum_1_CONFIG_WR,
+		INT_Spectrum_1_CONFIG_WR => INT_Spectrum_1_CONFIG_WR,
+		REG_Spectrum_1_CONFIG_RD => REG_Spectrum_1_CONFIG_WR,
+		REG_Spectrum_1_CONFIG_LIMIT_WR => REG_Spectrum_1_CONFIG_LIMIT_WR,
+		INT_Spectrum_1_CONFIG_LIMIT_WR => INT_Spectrum_1_CONFIG_LIMIT_WR,
+		REG_Spectrum_1_CONFIG_LIMIT_RD => REG_Spectrum_1_CONFIG_LIMIT_WR,
+		REG_Spectrum_1_CONFIG_REBIN_WR => REG_Spectrum_1_CONFIG_REBIN_WR,
+		INT_Spectrum_1_CONFIG_REBIN_WR => INT_Spectrum_1_CONFIG_REBIN_WR,
+		REG_Spectrum_1_CONFIG_REBIN_RD => REG_Spectrum_1_CONFIG_REBIN_WR,
+		REG_Spectrum_1_CONFIG_MIN_WR => REG_Spectrum_1_CONFIG_MIN_WR,
+		INT_Spectrum_1_CONFIG_MIN_WR => INT_Spectrum_1_CONFIG_MIN_WR,
+		REG_Spectrum_1_CONFIG_MIN_RD => REG_Spectrum_1_CONFIG_MIN_WR,
+		REG_Spectrum_1_CONFIG_MAX_WR => REG_Spectrum_1_CONFIG_MAX_WR,
+		INT_Spectrum_1_CONFIG_MAX_WR => INT_Spectrum_1_CONFIG_MAX_WR,
+		REG_Spectrum_1_CONFIG_MAX_RD => REG_Spectrum_1_CONFIG_MAX_WR,
+		REG_MODE_RD => REG_MODE_RD,
+		REG_MODE_WR => REG_MODE_WR,
+		INT_MODE_RD => INT_MODE_RD,
+		INT_MODE_WR => INT_MODE_WR,
 		REG_UNIQUE_RD => x"1E20F708",
 		REG_UNIQUE_WR => open,
    
@@ -828,20 +970,20 @@ begin
 	U0 : mcahp_test_KHCTRIYF
 	PORT MAP(
 		adc_data => U1_A0,
-		positive_r => U14_CONST(0),
-		digital_offset => U3_out_0,
-		threshold => U4_out_0,
-		trig_k => U5_out_0,
-		trig_m => U6_out_0,
-		e_k => x"0100",
-		e_m => U7_out_0,
-		e_MDec => U8_out_0,
-		e_G => U9_out_0,
-		baseline_len => U10_out_0,
-		baseline_inib => U11_out_0,
-		e_sample_delay => U12_out_0,
+		positive_r => U17_CONST(0),
+		digital_offset => U2_out_0,
+		threshold => U3_out_0,
+		trig_k => U4_out_0,
+		trig_m => U5_out_0,
+		e_k => U16_out_0,
+		e_m => U19_out_0,
+		e_MDec => U6_out_0,
+		e_G => U7_out_0,
+		baseline_len => U8_out_0,
+		baseline_inib => U9_out_0,
+		e_sample_delay => U10_out_0,
 		timetag => x"0000000000000000",
-		run_cfg => U13_out_0(0),
+		run_cfg => U18_out_0(0),
 		tr_reset => '0',
 		gin => '0',
 		GIN_SELECT => x"0",
@@ -862,66 +1004,33 @@ begin
 	);
 
 U1_A0 <= "0000" & CHA0(13 downto 2);
-
-	U2 : xlx_spectrum
-	Generic map(
-		memLength => 	4096,
-		wordWidth => 	32,
-		CLK_FREQ => 	125000
-	)
-	PORT MAP(
-		ENERGY => U16_b,
-		ENERGY_STROBE => U0_ENERGY_STROBE,
-		P_running => open,
-		P_acceptedPulse => open,
-		CLK_WRITE => CLK_ACQ,
-		CE => "1",
-		RESET => GlobalReset,
-		CLK_READ => BUS_CLK,
-		READ_ADDRESS => BUS_Spectrum_0_READ_ADDRESS,
-		READ_DATA => BUS_Spectrum_0_READ_DATA,
-		READ_INT => BUS_Spectrum_0_R_INT,
-		READ_DATAVALID => BUS_Spectrum_0_VLD,
-		STATUS => REG_Spectrum_0_STATUS_RD,
-		CONFIG => REG_Spectrum_0_CONFIG_WR,
-		CONFIG_LIMIT => REG_Spectrum_0_CONFIG_LIMIT_WR,
-		CONFIG_REBIN => REG_Spectrum_0_CONFIG_REBIN_WR,
-		CONFIG_MIN => REG_Spectrum_0_CONFIG_MIN_WR,
-		CONFIG_MAX => REG_Spectrum_0_CONFIG_MAX_WR
-	);
-
-U3_out_0 <= REG_T_OFFSET_WR(15 downto 0);
+U2_out_0 <= REG_T_OFFSET_WR(15 downto 0);
 REG_T_OFFSET_RD  <= REG_T_OFFSET_WR;
-U4_out_0 <= REG_T_THRS_WR(31 downto 0);
+U3_out_0 <= REG_T_THRS_WR(31 downto 0);
 REG_T_THRS_RD  <= REG_T_THRS_WR;
-U5_out_0 <= REG_T_TRIG_K_WR(15 downto 0);
+U4_out_0 <= REG_T_TRIG_K_WR(15 downto 0);
 REG_T_TRIG_K_RD  <= REG_T_TRIG_K_WR;
-U6_out_0 <= REG_T_TRIG_M_WR(15 downto 0);
+U5_out_0 <= REG_T_TRIG_M_WR(15 downto 0);
 REG_T_TRIG_M_RD  <= REG_T_TRIG_M_WR;
-U7_out_0 <= REG_T_TRAP_K_WR(15 downto 0);
-REG_T_TRAP_K_RD  <= REG_T_TRAP_K_WR;
-U8_out_0 <= REG_T_DECONV_M_WR(23 downto 0);
+U6_out_0 <= REG_T_DECONV_M_WR(23 downto 0);
 REG_T_DECONV_M_RD  <= REG_T_DECONV_M_WR;
-U9_out_0 <= REG_T_TRAP_GAIN_WR(23 downto 0);
+U7_out_0 <= REG_T_TRAP_GAIN_WR(23 downto 0);
 REG_T_TRAP_GAIN_RD  <= REG_T_TRAP_GAIN_WR;
-U10_out_0 <= REG_T_BL_LEN_WR(3 downto 0);
+U8_out_0 <= REG_T_BL_LEN_WR(3 downto 0);
 REG_T_BL_LEN_RD  <= REG_T_BL_LEN_WR;
-U11_out_0 <= REG_T_BL_INIB_WR(15 downto 0);
+U9_out_0 <= REG_T_BL_INIB_WR(15 downto 0);
 REG_T_BL_INIB_RD  <= REG_T_BL_INIB_WR;
-U12_out_0 <= REG_T_SAMPLE_POS_WR(15 downto 0);
+U10_out_0 <= REG_T_SAMPLE_POS_WR(15 downto 0);
 REG_T_SAMPLE_POS_RD  <= REG_T_SAMPLE_POS_WR;
-U13_out_0 <= REG_T_RUN_CFG_WR(0 downto 0);
-REG_T_RUN_CFG_RD  <= REG_T_RUN_CFG_WR;
-U14_CONST <= conv_std_logic_vector(1,1);
 
-	U15 : xlx_oscilloscope_sync
+	U11 : xlx_oscilloscope_sync
 	Generic map(
 		channels => 	6,
 		memLength => 	2048,
 		wordWidth => 	28
 	)
 	PORT MAP(
-		ANALOG => U21_b & U20_b & U19_b & U18_b & U17_b & U22_b,
+		ANALOG => U15_b & U14_b & U13_b & U12_b & U22_b & U21_b,
 		D0 => "0" & "0" & "0" & "0" & "0" & U0_TRIGGER_OUT,
 		D1 => "0" & "0" & "0" & "0" & "0" & U0_BASELINE_HOLD,
 		D2 => "0" & "0" & "0" & "0" & "0" & U0_ENERGY_STROBE,
@@ -945,31 +1054,7 @@ U14_CONST <= conv_std_logic_vector(1,1);
 	);
 
 
-	U16 : sigunsig
-	Generic map(
-		A_SIZE => 	32,
-		B_SIZE => 	16,
-		OPERATION => 	"unsign_to_unsign"
-	)
-	PORT MAP(
-		a => U0_ENERGY,
-		b => U16_b
-	);
-
-
-	U17 : sigunsig
-	Generic map(
-		A_SIZE => 	32,
-		B_SIZE => 	28,
-		OPERATION => 	"sign_to_sign"
-	)
-	PORT MAP(
-		a => U0_TRIGGER_DELTA_MON,
-		b => U17_b
-	);
-
-
-	U18 : sigunsig
+	U12 : sigunsig
 	Generic map(
 		A_SIZE => 	32,
 		B_SIZE => 	28,
@@ -977,11 +1062,11 @@ U14_CONST <= conv_std_logic_vector(1,1);
 	)
 	PORT MAP(
 		a => U0_TRIGGER_TRAP_MON,
-		b => U18_b
+		b => U12_b
 	);
 
 
-	U19 : sigunsig
+	U13 : sigunsig
 	Generic map(
 		A_SIZE => 	32,
 		B_SIZE => 	28,
@@ -989,11 +1074,11 @@ U14_CONST <= conv_std_logic_vector(1,1);
 	)
 	PORT MAP(
 		a => U0_TRAP_MON,
-		b => U19_b
+		b => U13_b
 	);
 
 
-	U20 : sigunsig
+	U14 : sigunsig
 	Generic map(
 		A_SIZE => 	32,
 		B_SIZE => 	28,
@@ -1001,11 +1086,11 @@ U14_CONST <= conv_std_logic_vector(1,1);
 	)
 	PORT MAP(
 		a => U0_TRAP_BL_MON,
-		b => U20_b
+		b => U14_b
 	);
 
 
-	U21 : sigunsig
+	U15 : sigunsig
 	Generic map(
 		A_SIZE => 	32,
 		B_SIZE => 	28,
@@ -1013,11 +1098,46 @@ U14_CONST <= conv_std_logic_vector(1,1);
 	)
 	PORT MAP(
 		a => U0_BL_MON,
-		b => U21_b
+		b => U15_b
+	);
+
+U16_out_0 <= REG_T_TRAP_K_WR(15 downto 0);
+REG_T_TRAP_K_RD  <= REG_T_TRAP_K_WR;
+U17_CONST <= conv_std_logic_vector(1,1);
+U18_out_0 <= REG_T_RUN_CFG_WR(0 downto 0);
+REG_T_RUN_CFG_RD  <= REG_T_RUN_CFG_WR;
+U19_out_0 <= REG_T_TRAP_M_WR(15 downto 0);
+REG_T_TRAP_M_RD  <= REG_T_TRAP_M_WR;
+
+	U20 : xlx_spectrum
+	Generic map(
+		memLength => 	4096,
+		wordWidth => 	32,
+		CLK_FREQ => 	125000
+	)
+	PORT MAP(
+		ENERGY => U26_EVENT_OUT,
+		ENERGY_STROBE => U26_DV_OUT,
+		P_running => open,
+		P_acceptedPulse => open,
+		CLK_WRITE => CLK_ACQ,
+		CE => "1",
+		RESET => GlobalReset,
+		CLK_READ => BUS_CLK,
+		READ_ADDRESS => BUS_Spectrum_1_READ_ADDRESS,
+		READ_DATA => BUS_Spectrum_1_READ_DATA,
+		READ_INT => BUS_Spectrum_1_R_INT,
+		READ_DATAVALID => BUS_Spectrum_1_VLD,
+		STATUS => REG_Spectrum_1_STATUS_RD,
+		CONFIG => REG_Spectrum_1_CONFIG_WR,
+		CONFIG_LIMIT => REG_Spectrum_1_CONFIG_LIMIT_WR,
+		CONFIG_REBIN => REG_Spectrum_1_CONFIG_REBIN_WR,
+		CONFIG_MIN => REG_Spectrum_1_CONFIG_MIN_WR,
+		CONFIG_MAX => REG_Spectrum_1_CONFIG_MAX_WR
 	);
 
 
-	U22 : sigunsig
+	U21 : sigunsig
 	Generic map(
 		A_SIZE => 	16,
 		B_SIZE => 	28,
@@ -1025,9 +1145,62 @@ U14_CONST <= conv_std_logic_vector(1,1);
 	)
 	PORT MAP(
 		a => U0_DATA_OUT,
+		b => U21_b
+	);
+
+
+	U22 : sigunsig
+	Generic map(
+		A_SIZE => 	32,
+		B_SIZE => 	28,
+		OPERATION => 	"sign_to_sign"
+	)
+	PORT MAP(
+		a => U0_TRIGGER_DELTA_MON,
 		b => U22_b
 	);
 
+
+	U23 : sigunsig
+	Generic map(
+		A_SIZE => 	32,
+		B_SIZE => 	16,
+		OPERATION => 	"unsign_to_sign"
+	)
+	PORT MAP(
+		a => U0_ENERGY,
+		b => U23_b
+	);
+
+U24_out_0 <= REG_LENGTH_WR(31 downto 0);
+REG_LENGTH_RD  <= REG_LENGTH_WR;
+U25_out_0 <= REG_DLENGTH_WR(31 downto 0);
+REG_DLENGTH_RD  <= REG_DLENGTH_WR;
+
+	U26 : PileupRejector_PFPWEZES
+	PORT MAP(
+		data_in => U23_b,
+		dv_in => U0_ENERGY_STROBE(0),
+		pileup_inib_double => U25_out_0,
+		pileup_inib => U24_out_0,
+		mode => U27_out_0,
+		prarallizable => '1',
+		rst_stat => '0',
+		ap_clk => CLK_ACQ(0),
+		ap_rst => GlobalReset(0),
+		data_out => U26_EVENT_OUT,
+		dv_out => U26_DV_OUT(0),
+		inib => open,
+		rej => open,
+		drej => open,
+		ic => open,
+		oc => open,
+		rejected => open,
+		rejected_double => open
+	);
+
+U27_out_0 <= REG_MODE_WR(3 downto 0);
+REG_MODE_RD  <= REG_MODE_WR;
 
 		 
 end Behavioral;

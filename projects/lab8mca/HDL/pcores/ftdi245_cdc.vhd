@@ -153,6 +153,45 @@ entity ftdi245_cdc is
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
 		INT_Oscilloscope_0_CONFIG_DECIMATOR_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_T_TRAP_M_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_T_TRAP_M_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_T_TRAP_M_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_T_TRAP_M_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_LENGTH_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_LENGTH_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_LENGTH_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_LENGTH_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_DLENGTH_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_DLENGTH_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_DLENGTH_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_DLENGTH_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+	BUS_Spectrum_1_READ_ADDRESS : OUT STD_LOGIC_VECTOR(15 downto 0); 
+	BUS_Spectrum_1_READ_DATA : IN STD_LOGIC_VECTOR(31 downto 0); 
+	BUS_Spectrum_1_WRITE_DATA : OUT STD_LOGIC_VECTOR(31 downto 0); 
+	BUS_Spectrum_1_W_INT : OUT STD_LOGIC_VECTOR(0 downto 0); 
+	BUS_Spectrum_1_R_INT : OUT STD_LOGIC_VECTOR(0 downto 0); 
+	BUS_Spectrum_1_VLD : IN STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_STATUS_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		INT_Spectrum_1_STATUS_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_CONFIG_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_Spectrum_1_CONFIG_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_CONFIG_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_Spectrum_1_CONFIG_LIMIT_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_Spectrum_1_CONFIG_LIMIT_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_CONFIG_LIMIT_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_Spectrum_1_CONFIG_REBIN_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_Spectrum_1_CONFIG_REBIN_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_CONFIG_REBIN_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_Spectrum_1_CONFIG_MIN_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_Spectrum_1_CONFIG_MIN_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_CONFIG_MIN_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_Spectrum_1_CONFIG_MAX_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_Spectrum_1_CONFIG_MAX_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		REG_Spectrum_1_CONFIG_MAX_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_MODE_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
+		REG_MODE_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
+		INT_MODE_RD : OUT STD_LOGIC_VECTOR(0 downto 0); 
+		INT_MODE_WR : OUT STD_LOGIC_VECTOR(0 downto 0); 
 		REG_UNIQUE_RD : IN STD_LOGIC_VECTOR(31 downto 0); 
 		REG_UNIQUE_WR : OUT STD_LOGIC_VECTOR(31 downto 0); 
 				  
@@ -490,16 +529,19 @@ begin
 	
 BUS_Spectrum_0_R_INT(0) <= f_BUS_INT_RD when (addr >= x"00000000" And addr < x"00010000") else '0';
 BUS_Spectrum_0_READ_ADDRESS <= BUS_ADDR(15 downto 0) when (addr >= x"00000000" And addr < x"00010000") else (others => '0');BUS_Oscilloscope_0_R_INT(0) <= f_BUS_INT_RD when (addr >= x"00014000" And addr < x"00018000") else '0';
-BUS_Oscilloscope_0_READ_ADDRESS <= BUS_ADDR(13 downto 0) when (addr >= x"00014000" And addr < x"00018000") else (others => '0');
+BUS_Oscilloscope_0_READ_ADDRESS <= BUS_ADDR(13 downto 0) when (addr >= x"00014000" And addr < x"00018000") else (others => '0');BUS_Spectrum_1_R_INT(0) <= f_BUS_INT_RD when (addr >= x"00020000" And addr < x"00030000") else '0';
+BUS_Spectrum_1_READ_ADDRESS <= BUS_ADDR(15 downto 0) when (addr >= x"00020000" And addr < x"00030000") else (others => '0');
 f_BUS_DATA_RD <= BUS_Test_0_READ_DATA when  (addr >= x"FFFD0000" And addr < x"FFFDFFFF") else 
  BUS_FLASH_0_READ_DATA when (addr >= x"FFFE0000" And addr < x"FFFEE000") else 
 BUS_Spectrum_0_READ_DATA  when  addr >= x"00000000" and addr < x"00010000" else 
 BUS_Oscilloscope_0_READ_DATA  when  addr >= x"00014000" and addr < x"00018000" else 
+BUS_Spectrum_1_READ_DATA  when  addr >= x"00020000" and addr < x"00030000" else 
  f_BUS_DATA_RD_REG;
  f_BUS_DATASTROBE <=BUS_Test_0_VLD(0) when  (addr >= x"FFFD0000" And addr < x"FFFDFFFF") else 
 BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else 
  BUS_Spectrum_0_VLD(0) when  addr >= x"00000000" and addr < x"00010000" else 
  BUS_Oscilloscope_0_VLD(0) when  addr >= x"00014000" and addr < x"00018000" else 
+ BUS_Spectrum_1_VLD(0) when  addr >= x"00020000" and addr < x"00030000" else 
  f_BUS_DATASTROBE_REG;	
 
 	BUS_FLASH_0_R_INT(0) <= f_BUS_INT_RD when (addr >= x"FFFE0000" And addr < x"FFFEE000") else '0';
@@ -582,6 +624,30 @@ BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else
 		INT_Oscilloscope_0_CONFIG_ARM_WR <= "0";
 		REG_Oscilloscope_0_CONFIG_DECIMATOR_WR <= (others => '0');
 		INT_Oscilloscope_0_CONFIG_DECIMATOR_WR <= "0";
+		REG_T_TRAP_M_WR <= (others => '0');
+		INT_T_TRAP_M_WR <= "0";
+		INT_T_TRAP_M_RD <= "0";
+		REG_LENGTH_WR <= (others => '0');
+		INT_LENGTH_WR <= "0";
+		INT_LENGTH_RD <= "0";
+		REG_DLENGTH_WR <= (others => '0');
+		INT_DLENGTH_WR <= "0";
+		INT_DLENGTH_RD <= "0";
+	BUS_Spectrum_1_W_INT <= "0";
+		INT_Spectrum_1_STATUS_RD <= "0";
+		REG_Spectrum_1_CONFIG_WR <= (others => '0');
+		INT_Spectrum_1_CONFIG_WR <= "0";
+		REG_Spectrum_1_CONFIG_LIMIT_WR <= (others => '0');
+		INT_Spectrum_1_CONFIG_LIMIT_WR <= "0";
+		REG_Spectrum_1_CONFIG_REBIN_WR <= (others => '0');
+		INT_Spectrum_1_CONFIG_REBIN_WR <= "0";
+		REG_Spectrum_1_CONFIG_MIN_WR <= (others => '0');
+		INT_Spectrum_1_CONFIG_MIN_WR <= "0";
+		REG_Spectrum_1_CONFIG_MAX_WR <= (others => '0');
+		INT_Spectrum_1_CONFIG_MAX_WR <= "0";
+		REG_MODE_WR <= (others => '0');
+		INT_MODE_WR <= "0";
+		INT_MODE_RD <= "0";
 				
             REG_OFFSET_WR <= (others => '0');
             INT_OFFSET_WR <= "0";
@@ -631,6 +697,21 @@ BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else
 		INT_Oscilloscope_0_CONFIG_TRIGGER_LEVEL_WR <= "0";
 		INT_Oscilloscope_0_CONFIG_ARM_WR <= "0";
 		INT_Oscilloscope_0_CONFIG_DECIMATOR_WR <= "0";
+		INT_T_TRAP_M_WR <= "0";
+		INT_T_TRAP_M_RD <= "0";
+		INT_LENGTH_WR <= "0";
+		INT_LENGTH_RD <= "0";
+		INT_DLENGTH_WR <= "0";
+		INT_DLENGTH_RD <= "0";
+	BUS_Spectrum_1_W_INT <= "0";
+		INT_Spectrum_1_STATUS_RD <= "0";
+		INT_Spectrum_1_CONFIG_WR <= "0";
+		INT_Spectrum_1_CONFIG_LIMIT_WR <= "0";
+		INT_Spectrum_1_CONFIG_REBIN_WR <= "0";
+		INT_Spectrum_1_CONFIG_MIN_WR <= "0";
+		INT_Spectrum_1_CONFIG_MAX_WR <= "0";
+		INT_MODE_WR <= "0";
+		INT_MODE_RD <= "0";
   			
             INT_OFFSET_WR <= "0";
             INT_OFFSET_RD <= "0";
@@ -758,6 +839,46 @@ BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else
 			REG_Oscilloscope_0_CONFIG_DECIMATOR_WR <= wreg; 
 			INT_Oscilloscope_0_CONFIG_DECIMATOR_WR <= "1"; 
 		end if;
+		if addr = x"00018007" then
+			REG_T_TRAP_M_WR <= wreg; 
+			INT_T_TRAP_M_WR <= "1"; 
+		end if;
+		if addr = x"00018008" then
+			REG_LENGTH_WR <= wreg; 
+			INT_LENGTH_WR <= "1"; 
+		end if;
+		if addr = x"00018009" then
+			REG_DLENGTH_WR <= wreg; 
+			INT_DLENGTH_WR <= "1"; 
+		end if;
+		If addr >= x"00020000" And addr < x"00030000" Then
+			BUS_Spectrum_1_WRITE_DATA <= wreg; 
+			BUS_Spectrum_1_W_INT <= "1"; 
+		End If;
+		if addr = x"00030001" then
+			REG_Spectrum_1_CONFIG_WR <= wreg; 
+			INT_Spectrum_1_CONFIG_WR <= "1"; 
+		end if;
+		if addr = x"00030002" then
+			REG_Spectrum_1_CONFIG_LIMIT_WR <= wreg; 
+			INT_Spectrum_1_CONFIG_LIMIT_WR <= "1"; 
+		end if;
+		if addr = x"00030003" then
+			REG_Spectrum_1_CONFIG_REBIN_WR <= wreg; 
+			INT_Spectrum_1_CONFIG_REBIN_WR <= "1"; 
+		end if;
+		if addr = x"00030004" then
+			REG_Spectrum_1_CONFIG_MIN_WR <= wreg; 
+			INT_Spectrum_1_CONFIG_MIN_WR <= "1"; 
+		end if;
+		if addr = x"00030005" then
+			REG_Spectrum_1_CONFIG_MAX_WR <= wreg; 
+			INT_Spectrum_1_CONFIG_MAX_WR <= "1"; 
+		end if;
+		if addr = x"00030006" then
+			REG_MODE_WR <= wreg; 
+			INT_MODE_WR <= "1"; 
+		end if;
 
 		 
                 end if;
@@ -838,6 +959,36 @@ BUS_FLASH_0_VLD(0) when (addr >= x"FFFE0000" And addr < x"FFFEE000") else
 		End If;
 		if addr = x"00018006" then
 			rreg := REG_Oscilloscope_0_CONFIG_DECIMATOR_RD; 
+		End If;
+		if addr = x"00018007" then
+			rreg := REG_T_TRAP_M_RD; 
+		End If;
+		if addr = x"00018008" then
+			rreg := REG_LENGTH_RD; 
+		End If;
+		if addr = x"00018009" then
+			rreg := REG_DLENGTH_RD; 
+		End If;
+		if addr = x"00030000" then
+			rreg := REG_Spectrum_1_STATUS_RD; 
+		End If;
+		if addr = x"00030001" then
+			rreg := REG_Spectrum_1_CONFIG_RD; 
+		End If;
+		if addr = x"00030002" then
+			rreg := REG_Spectrum_1_CONFIG_LIMIT_RD; 
+		End If;
+		if addr = x"00030003" then
+			rreg := REG_Spectrum_1_CONFIG_REBIN_RD; 
+		End If;
+		if addr = x"00030004" then
+			rreg := REG_Spectrum_1_CONFIG_MIN_RD; 
+		End If;
+		if addr = x"00030005" then
+			rreg := REG_Spectrum_1_CONFIG_MAX_RD; 
+		End If;
+		if addr = x"00030006" then
+			rreg := REG_MODE_RD; 
 		End If;
 	
  

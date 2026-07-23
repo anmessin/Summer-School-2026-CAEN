@@ -1,9 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("cb9f19fe-2df9-44a7-aca0-4e729d85f2f5") = "lab8mca_Example", "lab8mca_EXAMPLE.vcxproj", "f6aa2c76-2020-49af-80e8-67f81b9a43f0"
+Project("cb608184-ffdb-4cea-8be5-9ad167f06b53") = "lab8mca_Example", "lab8mca_EXAMPLE.vcxproj", "bd6e5f4a-60ab-4959-8776-a0ca5c37d9c4"
 EndProject
-Project("cb9f19fe-2df9-44a7-aca0-4e729d85f2f5") = "lab8mca_LIB", "lab8mca_LIB.vcxproj", "a5670023-47d9-4b15-bdfb-a8fa72e287eb"
+Project("cb608184-ffdb-4cea-8be5-9ad167f06b53") = "lab8mca_LIB", "lab8mca_LIB.vcxproj", "0d652995-b590-42fb-abdc-e1b9c50c9c09"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +11,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		f6aa2c76-2020-49af-80e8-67f81b9a43f0.Debug|x86.ActiveCfg = Debug|Win32
-		f6aa2c76-2020-49af-80e8-67f81b9a43f0.Debug|x86.Build.0 = Debug|Win32
-		f6aa2c76-2020-49af-80e8-67f81b9a43f0.Release|x86.ActiveCfg = Release|Win32
-		f6aa2c76-2020-49af-80e8-67f81b9a43f0.Release|x86.Build.0 = Release|Win32
-		a5670023-47d9-4b15-bdfb-a8fa72e287eb.Debug|x86.ActiveCfg = Debug|Win32
-		a5670023-47d9-4b15-bdfb-a8fa72e287eb.Debug|x86.Build.0 = Debug|Win32
-		a5670023-47d9-4b15-bdfb-a8fa72e287eb.Release|x86.ActiveCfg = Release|Win32
-		a5670023-47d9-4b15-bdfb-a8fa72e287eb.Release|x86.Build.0 = Release|Win32
+		bd6e5f4a-60ab-4959-8776-a0ca5c37d9c4.Debug|x86.ActiveCfg = Debug|Win32
+		bd6e5f4a-60ab-4959-8776-a0ca5c37d9c4.Debug|x86.Build.0 = Debug|Win32
+		bd6e5f4a-60ab-4959-8776-a0ca5c37d9c4.Release|x86.ActiveCfg = Release|Win32
+		bd6e5f4a-60ab-4959-8776-a0ca5c37d9c4.Release|x86.Build.0 = Release|Win32
+		0d652995-b590-42fb-abdc-e1b9c50c9c09.Debug|x86.ActiveCfg = Debug|Win32
+		0d652995-b590-42fb-abdc-e1b9c50c9c09.Debug|x86.Build.0 = Debug|Win32
+		0d652995-b590-42fb-abdc-e1b9c50c9c09.Release|x86.ActiveCfg = Release|Win32
+		0d652995-b590-42fb-abdc-e1b9c50c9c09.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

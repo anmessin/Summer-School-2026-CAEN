@@ -150,60 +150,41 @@ def REG_T_RUN_CFG_GET(handle):
 def REG_T_RUN_CFG_SET(data, handle):
     err = __abstracted_reg_write(data, lab8mca_RegisterFile.SCI_REG_T_RUN_CFG, handle)
     return err
+
+def REG_T_TRAP_M_GET(handle):
+    [err, data] = __abstracted_reg_read(lab8mca_RegisterFile.SCI_REG_T_TRAP_M, handle)
+    return err, data
+
+def REG_T_TRAP_M_SET(data, handle):
+    err = __abstracted_reg_write(data, lab8mca_RegisterFile.SCI_REG_T_TRAP_M, handle)
+    return err
+
+def REG_LENGTH_GET(handle):
+    [err, data] = __abstracted_reg_read(lab8mca_RegisterFile.SCI_REG_LENGTH, handle)
+    return err, data
+
+def REG_LENGTH_SET(data, handle):
+    err = __abstracted_reg_write(data, lab8mca_RegisterFile.SCI_REG_LENGTH, handle)
+    return err
+
+def REG_DLENGTH_GET(handle):
+    [err, data] = __abstracted_reg_read(lab8mca_RegisterFile.SCI_REG_DLENGTH, handle)
+    return err, data
+
+def REG_DLENGTH_SET(data, handle):
+    err = __abstracted_reg_write(data, lab8mca_RegisterFile.SCI_REG_DLENGTH, handle)
+    return err
+
+def REG_MODE_GET(handle):
+    [err, data] = __abstracted_reg_read(lab8mca_RegisterFile.SCI_REG_MODE, handle)
+    return err, data
+
+def REG_MODE_SET(data, handle):
+    err = __abstracted_reg_write(data, lab8mca_RegisterFile.SCI_REG_MODE, handle)
+    return err
 def REG_ANALOG_OFFSET_SET(data, handle):
     err = __abstracted_reg_write(data, lab8mca_RegisterFile.SCI_REG_ANALOG_OFFSET, handle)
     return err
-
-
-
-def SPECTRUM_Spectrum_0_RESET(handle):
-    err = __abstracted_reg_write(2, lab8mca_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
-    return err
-
-def SPECTRUM_Spectrum_0_START(handle):
-    err = __abstracted_reg_write(4, lab8mca_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
-    return err
-
-def SPECTRUM_Spectrum_0_FLUSH(handle):
-    err = __abstracted_reg_write(1, lab8mca_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
-    return err
-
-def SPECTRUM_Spectrum_0_STOP(handle):
-    err = __abstracted_reg_write(0, lab8mca_RegisterFile.SCI_REG_Spectrum_0_CONFIG, handle)
-    return err
-
-def SPECTRUM_Spectrum_0_SET_PARAMETERS(Bin, AcquisitionMode, TargetValue, handle):
-    rebin_value=0
-    if (Bin == 8192):
-        rebin_value= 1
-    if (Bin == 4096):
-        rebin_value= 2
-    if (Bin == 2048):
-        rebin_value= 3
-    if (Bin == 1024):
-        rebin_value= 4
-    if (Bin == 512):
-        rebin_value= 5
-    if (Bin == 256):
-        rebin_value= 6
-    if (Bin == 128):
-        rebin_value= 7
-    err = __abstracted_reg_write(rebin_value, lab8mca_RegisterFile.SCI_REG_Spectrum_0_CONFIG_REBIN, handle)
-    acq_mode=0
-    if (AcquisitionMode =="Event"):
-        acq_mode=(1 << 30) + TargetValue
-    if (AcquisitionMode =="Time"):
-        acq_mode=(1 << 31) + TargetValue*1000
-    err = __abstracted_reg_write(acq_mode, lab8mca_RegisterFile.SCI_REG_Spectrum_0_CONFIG_LIMIT, handle)
-    return err
-
-def SPECTRUM_Spectrum_0_GET_STATUS(handle):
-    [err, status] = __abstracted_reg_read(lab8mca_RegisterFile.SCI_REG_Spectrum_0_STATUS, handle)
-    return err, status
-
-def SPECTRUM_Spectrum_0_GET_DATA(Bin, timeout_ms, handle):
-    [err, data, read_data, valid_data] = __abstracted_mem_read(Bin, lab8mca_RegisterFile.SCI_REG_Spectrum_0_FIFOADDRESS, timeout_ms, handle)
-    return err, data, read_data, valid_data
 
 
 
@@ -311,4 +292,55 @@ def OSCILLOSCOPE_Oscilloscope_0_RECONSTRUCT_DATA(OscilloscopeData, OscilloscopeP
                 Digital3[k+ OscilloscopeSamples * n] = (OscilloscopeData[i+ OscilloscopeSamples * n] >> 31 & 1)
                 k = k + 1
     return Analog, Digital0, Digital1,Digital2, Digital3
+
+
+
+def SPECTRUM_Spectrum_1_RESET(handle):
+    err = __abstracted_reg_write(2, lab8mca_RegisterFile.SCI_REG_Spectrum_1_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_1_START(handle):
+    err = __abstracted_reg_write(4, lab8mca_RegisterFile.SCI_REG_Spectrum_1_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_1_FLUSH(handle):
+    err = __abstracted_reg_write(1, lab8mca_RegisterFile.SCI_REG_Spectrum_1_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_1_STOP(handle):
+    err = __abstracted_reg_write(0, lab8mca_RegisterFile.SCI_REG_Spectrum_1_CONFIG, handle)
+    return err
+
+def SPECTRUM_Spectrum_1_SET_PARAMETERS(Bin, AcquisitionMode, TargetValue, handle):
+    rebin_value=0
+    if (Bin == 8192):
+        rebin_value= 1
+    if (Bin == 4096):
+        rebin_value= 2
+    if (Bin == 2048):
+        rebin_value= 3
+    if (Bin == 1024):
+        rebin_value= 4
+    if (Bin == 512):
+        rebin_value= 5
+    if (Bin == 256):
+        rebin_value= 6
+    if (Bin == 128):
+        rebin_value= 7
+    err = __abstracted_reg_write(rebin_value, lab8mca_RegisterFile.SCI_REG_Spectrum_1_CONFIG_REBIN, handle)
+    acq_mode=0
+    if (AcquisitionMode =="Event"):
+        acq_mode=(1 << 30) + TargetValue
+    if (AcquisitionMode =="Time"):
+        acq_mode=(1 << 31) + TargetValue*1000
+    err = __abstracted_reg_write(acq_mode, lab8mca_RegisterFile.SCI_REG_Spectrum_1_CONFIG_LIMIT, handle)
+    return err
+
+def SPECTRUM_Spectrum_1_GET_STATUS(handle):
+    [err, status] = __abstracted_reg_read(lab8mca_RegisterFile.SCI_REG_Spectrum_1_STATUS, handle)
+    return err, status
+
+def SPECTRUM_Spectrum_1_GET_DATA(Bin, timeout_ms, handle):
+    [err, data, read_data, valid_data] = __abstracted_mem_read(Bin, lab8mca_RegisterFile.SCI_REG_Spectrum_1_FIFOADDRESS, timeout_ms, handle)
+    return err, data, read_data, valid_data
 

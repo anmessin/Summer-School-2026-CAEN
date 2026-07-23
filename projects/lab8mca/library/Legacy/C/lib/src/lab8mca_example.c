@@ -22,38 +22,6 @@ int main(int argc, char* argv[])
 	
 	/* //REMOVE THIS COMMENT TO ENABLE THE EXAMPLE CODE
 
-	uint32_t status_spectrum= 0;
-	int32_t Rebin = 0;
-	int32_t LimitMode = 0;
-	int32_t LimitValue = 0;
-	uint32_t data_spectrum[4096];
-	uint32_t read_data_spectrum;
-	uint32_t valid_data_spectrum;
-	uint32_t bins = 4096;
-	int32_t timeout_spectrum = 1000;
-	uint32_t spectrum[4096];
-
-	if (SPECTRUM_Spectrum_0_SET_PARAMETERS(Rebin, LimitMode, LimitValue, &handle) != 0) printf("Set Parameters Error");
-	if (SPECTRUM_Spectrum_0_FLUSH(&handle) != 0) printf("Flush Error");
-	if (SPECTRUM_Spectrum_0_RESET(&handle) != 0) printf("Reset Error");
-	if (SPECTRUM_Spectrum_0_START(&handle) == 0) {
-		if (SPECTRUM_Spectrum_0_STATUS(&status_spectrum, &handle) == 0) {
-			while (status_spectrum != 0)
-			{
-				if (SPECTRUM_Spectrum_0_DOWNLOAD(&data_spectrum, bins, timeout_spectrum, &handle, &read_data_spectrum, &valid_data_spectrum) == 0)
-				{
-					for (int i = 0; i < 4096; i++)
-						spectrum[i] = data_spectrum[i];
-				}
-				else  printf("Data Download Error");
-			}
-			if (SPECTRUM_Spectrum_0_STOP(&handle) != 0) printf("Stop Error");
-		}
-	}
-	else printf("Start Error");
-*/
-/* //REMOVE THIS COMMENT TO ENABLE THE EXAMPLE CODE
-
 	uint32_t status_osc = 0;
 	uint32_t data_osc[2048];
 	uint32_t read_data_osc;
@@ -93,6 +61,38 @@ int main(int argc, char* argv[])
 		e++;
 	}
 	printf("Download Finished");
+*/
+/* //REMOVE THIS COMMENT TO ENABLE THE EXAMPLE CODE
+
+	uint32_t status_spectrum= 0;
+	int32_t Rebin = 0;
+	int32_t LimitMode = 0;
+	int32_t LimitValue = 0;
+	uint32_t data_spectrum[4096];
+	uint32_t read_data_spectrum;
+	uint32_t valid_data_spectrum;
+	uint32_t bins = 4096;
+	int32_t timeout_spectrum = 1000;
+	uint32_t spectrum[4096];
+
+	if (SPECTRUM_Spectrum_1_SET_PARAMETERS(Rebin, LimitMode, LimitValue, &handle) != 0) printf("Set Parameters Error");
+	if (SPECTRUM_Spectrum_1_FLUSH(&handle) != 0) printf("Flush Error");
+	if (SPECTRUM_Spectrum_1_RESET(&handle) != 0) printf("Reset Error");
+	if (SPECTRUM_Spectrum_1_START(&handle) == 0) {
+		if (SPECTRUM_Spectrum_1_STATUS(&status_spectrum, &handle) == 0) {
+			while (status_spectrum != 0)
+			{
+				if (SPECTRUM_Spectrum_1_DOWNLOAD(&data_spectrum, bins, timeout_spectrum, &handle, &read_data_spectrum, &valid_data_spectrum) == 0)
+				{
+					for (int i = 0; i < 4096; i++)
+						spectrum[i] = data_spectrum[i];
+				}
+				else  printf("Data Download Error");
+			}
+			if (SPECTRUM_Spectrum_1_STOP(&handle) != 0) printf("Stop Error");
+		}
+	}
+	else printf("Start Error");
 */
 
 

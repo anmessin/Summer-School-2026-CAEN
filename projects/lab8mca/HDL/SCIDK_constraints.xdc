@@ -160,9 +160,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports EEMOSI]
 
 set_false_path -from [get_clocks FTDI_CLK] -to [get_clocks -of_objects [get_pins mcg/inst/mmcm_adv_inst/CLKOUT0]]
 
-# Oscilloscope_0 (U15) constraints
+# Oscilloscope_0 (U11) constraints
 
-set_false_path -from [get_pins U15/READ_STATUS_reg[*]/C] -to [get_clocks -of_objects [get_pins U15/GENCH[*].xpm_memory_sdpram_inst/clkb]]
-set_false_path -from [get_pins U15/READ_POSITION_reg[*]/C] -to [get_clocks -of_objects [get_pins U15/GENCH[*].xpm_memory_sdpram_inst/clkb]]
-set_false_path -from [get_pins U15/BUSY_reg[*]/C] -to [get_clocks -of_objects [get_pins U15/GENCH[*].xpm_memory_sdpram_inst/clkb]]
-set_false_path -from [get_pins -hierarchical -filter (NAME=~*/REG_Oscilloscope_0_*_WR_reg[*]/C)] -to [get_clocks -of_objects [get_pins U15/GENCH[*].xpm_memory_sdpram_inst/clka]]
+set_false_path -from [get_pins U11/READ_STATUS_reg[*]/C] -to [get_clocks -of_objects [get_pins U11/GENCH[*].xpm_memory_sdpram_inst/clkb]]
+set_false_path -from [get_pins U11/READ_POSITION_reg[*]/C] -to [get_clocks -of_objects [get_pins U11/GENCH[*].xpm_memory_sdpram_inst/clkb]]
+set_false_path -from [get_pins U11/BUSY_reg[*]/C] -to [get_clocks -of_objects [get_pins U11/GENCH[*].xpm_memory_sdpram_inst/clkb]]
+set_false_path -from [get_pins -hierarchical -filter (NAME=~*/REG_Oscilloscope_0_*_WR_reg[*]/C)] -to [get_clocks -of_objects [get_pins U11/GENCH[*].xpm_memory_sdpram_inst/clka]]
