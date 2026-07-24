@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>eae07210-7f44-46e9-aad6-be2f41ae2a0e</ProjectGuid>
+    <ProjectGuid>6e4b75e5-1c49-42d4-b411-fec258b55379</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>lab9exam</RootNamespace>
 	<ProjectName>lab9exam</ProjectName>

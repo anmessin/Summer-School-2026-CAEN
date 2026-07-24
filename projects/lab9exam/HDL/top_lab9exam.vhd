@@ -447,8 +447,6 @@ signal U7_out_0 : integer;
 	signal U10_CHARGE : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	signal U10_INT_MON : STD_LOGIC_VECTOR(0 downto 0) := "0";
 signal U11_out_0 : std_logic_vector(15 downto 0);
-signal U12_out_0 : std_logic_vector(15 downto 0);
-signal U13_out_0 : std_logic_vector(15 downto 0);
 	signal BUS_Spectrum_0_READ_DATA : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	signal BUS_Spectrum_0_VLD : STD_LOGIC_VECTOR(0 DOWNTO 0);
 	signal REG_Spectrum_0_STATUS_RD : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -481,9 +479,9 @@ signal U13_out_0 : std_logic_vector(15 downto 0);
 		);
 	END COMPONENT;
 
-signal U15_CONST : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
-signal U16_out_0 : std_logic_vector(15 downto 0);
-	signal U17_OUT : STD_LOGIC_VECTOR(0 DOWNTO 0);
+signal U13_CONST : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
+signal U14_out_0 : std_logic_vector(15 downto 0);
+	signal U15_OUT : STD_LOGIC_VECTOR(0 DOWNTO 0);
 
 	COMPONENT SYNC_DELAYp
 		GENERIC( 
@@ -499,7 +497,7 @@ signal U16_out_0 : std_logic_vector(15 downto 0);
 		);
 	END COMPONENT;
 
-signal U18_out_0 : integer;
+signal U16_out_0 : integer;
 	signal BUS_Oscilloscope_0_READ_DATA : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	signal BUS_Oscilloscope_0_VLD : STD_LOGIC_VECTOR(0 DOWNTO 0);
 	signal REG_Oscilloscope_0_READ_STATUS_RD : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -536,9 +534,9 @@ signal U18_out_0 : integer;
 		);
 	END COMPONENT;
 
-	signal U20_DATA_OUT : STD_LOGIC_VECTOR(15 DOWNTO 0);
-	signal U20_DERIVATE : STD_LOGIC_VECTOR(15 DOWNTO 0);
-	signal U20_TRIGGER : STD_LOGIC_VECTOR(0 DOWNTO 0);
+	signal U18_DATA_OUT : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	signal U18_DERIVATE : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	signal U18_TRIGGER : STD_LOGIC_VECTOR(0 DOWNTO 0);
 
 	COMPONENT TRIGGER_DERIVATIVEp
 		GENERIC( 
@@ -588,8 +586,8 @@ signal U18_out_0 : integer;
 		);
 	END COMPONENT;
 
-signal U22_OUT : std_logic_vector(64-1 downto 0) := (others => '0');
-	signal U23_b : STD_LOGIC_VECTOR(15 DOWNTO 0);
+signal U20_OUT : std_logic_vector(64-1 downto 0) := (others => '0');
+	signal U21_b : STD_LOGIC_VECTOR(15 DOWNTO 0);
 
 	COMPONENT sigunsig
 		GENERIC( 
@@ -603,6 +601,8 @@ signal U22_OUT : std_logic_vector(64-1 downto 0) := (others => '0');
 		);
 	END COMPONENT;
 
+signal U22_out_0 : std_logic_vector(15 downto 0);
+signal U23_out_0 : std_logic_vector(15 downto 0);
 	signal BUS_Spectrum_0_READ_ADDRESS : STD_LOGIC_VECTOR(15 downto 0);
 	signal BUS_Spectrum_0_WRITE_DATA : STD_LOGIC_VECTOR(31 downto 0);
 	signal BUS_Spectrum_0_W_INT : STD_LOGIC_VECTOR(0 downto 0);
@@ -935,7 +935,7 @@ U3_CONST <= conv_std_logic_vector(1,1);
 		SATURATE => 	true
 	)
 	PORT MAP(
-		a_in => U20_DATA_OUT,
+		a_in => U18_DATA_OUT,
 		b_in => U5_BASELINE,
 		clk => GlobalClock(0),
 		reset => GlobalReset(0),
@@ -949,8 +949,8 @@ U3_CONST <= conv_std_logic_vector(1,1);
 		maxLength => 	1024
 	)
 	PORT MAP(
-		DATA_IN => U20_DATA_OUT,
-		TRIGGER => U20_TRIGGER,
+		DATA_IN => U18_DATA_OUT,
+		TRIGGER => U18_TRIGGER,
 		M_LENGTH => U6_out_0,
 		BL_HOLD => U7_out_0,
 		FLUSH => "0",
@@ -973,9 +973,9 @@ REG_BL_HOLD_RD  <= REG_BL_HOLD_WR;
 		wordWidth => 	16
 	)
 	PORT MAP(
-		DATA_IN => U23_b,
+		DATA_IN => U21_b,
 		CLK => GlobalClock,
-		RESET => U20_TRIGGER,
+		RESET => U18_TRIGGER,
 		CE => "1",
 		DATA_OUT => U8_DATA_OUT,
 		TRACKHOLD => U8_TRACKHOLD
@@ -984,14 +984,14 @@ REG_BL_HOLD_RD  <= REG_BL_HOLD_WR;
 
 	U9 : xlx_qdc_UUJHQOSO
 	PORT MAP(
-		in1 => U20_DATA_OUT,
+		in1 => U18_DATA_OUT,
 		base_line => U5_BASELINE,
 		int_length => U11_out_0,
-		pre_length => U16_out_0,
-		gain => U12_out_0,
+		pre_length => U14_out_0,
+		gain => U23_out_0,
 		offset => x"0000",
 		pileup_inib => x"0000",
-		trigger => U20_TRIGGER(0),
+		trigger => U18_TRIGGER(0),
 		pileup_rj_enable => '0',
 		ce_enable => '1',
 		monitor => U9_MONITOR,
@@ -1009,14 +1009,14 @@ REG_BL_HOLD_RD  <= REG_BL_HOLD_WR;
 
 	U10 : xlx_qdc_UUJHQOSO
 	PORT MAP(
-		in1 => U20_DATA_OUT,
+		in1 => U18_DATA_OUT,
 		base_line => U5_BASELINE,
-		int_length => U13_out_0,
-		pre_length => U16_out_0,
-		gain => U12_out_0,
+		int_length => U22_out_0,
+		pre_length => U14_out_0,
+		gain => U23_out_0,
 		offset => x"0000",
 		pileup_inib => x"0000",
-		trigger => U17_OUT(0),
+		trigger => U15_OUT(0),
 		pileup_rj_enable => '0',
 		ce_enable => '1',
 		monitor => open,
@@ -1033,12 +1033,8 @@ REG_BL_HOLD_RD  <= REG_BL_HOLD_WR;
 
 U11_out_0 <= REG_INT_Q_WR(15 downto 0);
 REG_INT_Q_RD  <= REG_INT_Q_WR;
-U12_out_0 <= REG_GAIN_WR(15 downto 0);
-REG_GAIN_RD  <= REG_GAIN_WR;
-U13_out_0 <= REG_INT_SAMPLES_WR(15 downto 0);
-REG_INT_SAMPLES_RD  <= REG_INT_SAMPLES_WR;
 
-	U14 : xlx_spectrum
+	U12 : xlx_spectrum
 	Generic map(
 		memLength => 	1024,
 		wordWidth => 	16,
@@ -1065,35 +1061,35 @@ REG_INT_SAMPLES_RD  <= REG_INT_SAMPLES_WR;
 		CONFIG_MAX => REG_Spectrum_0_CONFIG_MAX_WR
 	);
 
-U15_CONST <= conv_std_logic_vector(0000,16);
-U16_out_0 <= REG_PRE_TRIGGER_WR(15 downto 0);
+U13_CONST <= conv_std_logic_vector(0000,16);
+U14_out_0 <= REG_PRE_TRIGGER_WR(15 downto 0);
 REG_PRE_TRIGGER_RD  <= REG_PRE_TRIGGER_WR;
 
-	U17 : SYNC_DELAYp
+	U15 : SYNC_DELAYp
 	Generic map(
 		maxDelay => 	1024,
 		busWidth => 	1
 	)
 	PORT MAP(
-		PORT_IN => U20_TRIGGER,
-		DELAY => U18_out_0,
-		PORT_OUT => U17_OUT,
+		PORT_IN => U18_TRIGGER,
+		DELAY => U16_out_0,
+		PORT_OUT => U15_OUT,
 		CLK => CLK_ACQ,
 		RESET => GlobalReset
 	);
 
-U18_out_0 <= conv_integer(REG_DELAY_WR);
+U16_out_0 <= conv_integer(REG_DELAY_WR);
 REG_DELAY_RD  <= REG_DELAY_WR;
 
-	U19 : xlx_oscilloscope_sync
+	U17 : xlx_oscilloscope_sync
 	Generic map(
 		channels => 	3,
 		memLength => 	1024,
 		wordWidth => 	16
 	)
 	PORT MAP(
-		ANALOG => U20_DERIVATE & U8_DATA_OUT & U9_MONITOR,
-		D0 => "0" & U10_INT_MON & U20_TRIGGER,
+		ANALOG => U18_DERIVATE & U8_DATA_OUT & U9_MONITOR,
+		D0 => "0" & U10_INT_MON & U18_TRIGGER,
 		D1 => "0" & "0" & U9_DV,
 		D2 => "0" & "0" & U9_INT_MON,
 		D3 => "0" & "0" & U8_TRACKHOLD,
@@ -1116,7 +1112,7 @@ REG_DELAY_RD  <= REG_DELAY_WR;
 	);
 
 
-	U20 : TRIGGER_DERIVATIVEp
+	U18 : TRIGGER_DERIVATIVEp
 	Generic map(
 		noise_filter => 	1,
 		wordWidth => 	16,
@@ -1130,20 +1126,20 @@ REG_DELAY_RD  <= REG_DELAY_WR;
 		CE => "1",
 		CLK => GlobalClock,
 		RESET => GlobalReset,
-		DELAYED_DATA => U20_DATA_OUT,
-		DERIVATIVE_DATA => U20_DERIVATE,
-		TRIGGER_OUT => U20_TRIGGER
+		DELAYED_DATA => U18_DATA_OUT,
+		DERIVATIVE_DATA => U18_DERIVATE,
+		TRIGGER_OUT => U18_TRIGGER
 	);
 
 
-	U21 : listmodule
+	U19 : listmodule
 	Generic map(
 		fifolength => 	1024,
 		bitsize => 	64,
 		channels => 	1
 	)
 	PORT MAP(
-		DATAIN => U22_OUT,
+		DATAIN => U20_OUT,
 		WE => U9_DV,
 		FULL => open,
 		BUSY => open,
@@ -1159,9 +1155,9 @@ REG_DELAY_RD  <= REG_DELAY_WR;
 		CONFIG => REG_List_0_CONFIG_WR
 	);
 
-U22_OUT <= U15_CONST & U8_DATA_OUT & U9_CHARGE & U10_CHARGE;
+U20_OUT <= U13_CONST & U8_DATA_OUT & U9_CHARGE & U10_CHARGE;
 
-	U23 : sigunsig
+	U21 : sigunsig
 	Generic map(
 		A_SIZE => 	16,
 		B_SIZE => 	16,
@@ -1169,9 +1165,13 @@ U22_OUT <= U15_CONST & U8_DATA_OUT & U9_CHARGE & U10_CHARGE;
 	)
 	PORT MAP(
 		a => U4_OUT,
-		b => U23_b
+		b => U21_b
 	);
 
+U22_out_0 <= REG_INT_SAMPLES_WR(15 downto 0);
+REG_INT_SAMPLES_RD  <= REG_INT_SAMPLES_WR;
+U23_out_0 <= REG_GAIN_WR(15 downto 0);
+REG_GAIN_RD  <= REG_GAIN_WR;
 
 		 
 end Behavioral;

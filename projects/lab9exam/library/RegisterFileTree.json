@@ -241,26 +241,6 @@
       "Path": "/INT_Q"
     },
     {
-      "Name": "GAIN",
-      "Type": "Register",
-      "Address": 4,
-      "Version": "1.0.0.0",
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined",
-      "Path": "/GAIN"
-    },
-    {
-      "Name": "INT_SAMPLES",
-      "Type": "Register",
-      "Address": 5,
-      "Version": "1.0.0.0",
-      "RegionSize": 1,
-      "Description": "",
-      "Category": "Undefined",
-      "Path": "/INT_SAMPLES"
-    },
-    {
       "Name": "PRE_TRIGGER",
       "Type": "Register",
       "Address": 131082,
@@ -281,6 +261,26 @@
       "Path": "/DELAY"
     },
     {
+      "Name": "INT_SAMPLES",
+      "Type": "Register",
+      "Address": 5,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/INT_SAMPLES"
+    },
+    {
+      "Name": "GAIN",
+      "Type": "Register",
+      "Address": 4,
+      "Version": "1.0.0.0",
+      "RegionSize": 1,
+      "Description": "",
+      "Category": "Undefined",
+      "Path": "/GAIN"
+    },
+    {
       "Name": "ANALOG_OFFSET",
       "Type": "Register",
       "Address": 4294967289,
@@ -299,5 +299,5 @@
   "Magic": "33FFB629",
   "Version": null,
   "FPGA": "XC7S25CSGA225-1",
-  "BuildDate": "2026-07-23T18:04:29.1016052+02:00"
+  "BuildDate": "2026-07-24T02:37:25.133189+02:00"
 }

@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>ab41c437-a609-4c37-bb81-539a687a119e</ProjectGuid>
+    <ProjectGuid>8719d813-e082-43a0-aade-2ced5ea10819</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>lab9exam_LIB</RootNamespace>
     <ProjectName>lab9exam_LIB</ProjectName>
