@@ -60,8 +60,6 @@ res = sdk.ExecuteCommand("board0:/MMCComponents/List_0.stop", "")
 energies = np.array(energies)
 psd = np.array(psd)
 
-print(f"Eventi raccolti: {len(energies)}")
-
 # --- Salvataggio in CSV ---
 output_file = "acquisizione_dati.csv"
 with open(output_file, "w", newline="") as f:
@@ -69,38 +67,3 @@ with open(output_file, "w", newline="") as f:
     writer.writerow(["energy", "psd"])
     for e, p in zip(energies, psd):
         writer.writerow([e, p])
-
-print(f"Dati salvati in {output_file}")
-
-# --- Istogramma energia ---
-plt.figure(figsize=(8, 5))
-plt.hist(energies, bins=100, color='steelblue', edgecolor='none')
-plt.xlabel("Energia (Qenergy)")
-plt.ylabel("Conteggi")
-plt.title("Spettro energetico")
-plt.tight_layout()
-plt.savefig("istogramma_energia.png", dpi=150)
-plt.show()
-
-# --- Scatter plot: energia vs PSD ---
-plt.figure(figsize=(8, 6))
-plt.scatter(energies, psd, s=2, alpha=0.3, color='steelblue', edgecolors='none')
-plt.xlabel("Energia (Qenergy)")
-plt.ylabel("PSD (peak / Qshort)")
-plt.title("Discriminazione PSD vs Energia")
-plt.tight_layout()
-plt.savefig("psd_vs_energia.png", dpi=150)
-plt.show()
-
-# --- Istogramma 2D: energia vs PSD (colore in scala log) ---
-from matplotlib.colors import LogNorm
-
-plt.figure(figsize=(8, 6))
-h = plt.hist2d(energies, psd, bins=[200, 200], cmap='viridis', norm=LogNorm())
-plt.colorbar(h[3], label="Conteggi (log)")
-plt.xlabel("Energia (Qenergy)")
-plt.ylabel("PSD (peak / Qshort)")
-plt.title("Discriminazione PSD vs Energia")
-plt.tight_layout()
-plt.savefig("psd_vs_energia.png", dpi=150)
-plt.show()
